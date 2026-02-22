@@ -1,0 +1,898 @@
+<!DOCTYPE html>
+<html lang="tr" dir="ltr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="Namaz vakitleri, ezan saatleri, günlük ayet ve hadis. Dünyanın her şehrinde doğru namaz vakitleri. Prayer times worldwide.">
+<meta name="keywords" content="namaz vakitleri, ezan vakti, namaz saatleri, prayer times, islamic prayer times, fajr, dhuhr, asr, maghrib, isha, imsak vakti, iftar vakti, sahur vakti, ramazan vakitleri">
+<meta name="rating" content="general">
+<meta name="robots" content="index, follow">
+<meta name="theme-color" content="#05080e">
+<meta property="og:title" content="Namaz Vakitleri | Prayer Times">
+<meta property="og:description" content="Dünyanın her şehrinde anlık namaz vakitleri. Günlük ayet ve hadis.">
+<meta property="og:type" content="website">
+<link rel="alternate" hreflang="tr" href="https://YOUR-TR-DOMAIN.com">
+<link rel="alternate" hreflang="en" href="https://YOUR-EN-DOMAIN.com">
+<title id="pageTitle">Namaz Vakitleri | Prayer Times</title>
+<!--
+  ╔══════════════════════════════════════════════════╗
+  ║  Google AdSense — Hesap onaylandıktan sonra:    ║
+  ║  1. Aşağıdaki satırın başındaki // kaldır       ║
+  ║  2. ca-pub-XXXXXXXX yerine Publisher ID'ni gir  ║
+  ║  3. AdSense Paneli > Güvenlik Merkezi >         ║
+  ║     Hassas kategoriler > Cinsel içerik KAPAT    ║
+  ╚══════════════════════════════════════════════════╝
+-->
+<!-- <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-XXXXXXXXXXXXXXXX" crossorigin="anonymous"></script> -->
+<link href="https://fonts.googleapis.com/css2?family=Amiri:wght@400;700&family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,400&family=Noto+Sans+Arabic:wght@300;400;600&display=swap" rel="stylesheet">
+<style>
+:root{--navy:#05080e;--navy-mid:#0a1220;--navy-light:#122033;--gold:#c8a84b;--gold-light:#e8cb72;--gold-dim:#6a4f1e;--white:#f3ede3;--white-dim:#857a69;--accent:#19305e;--green:#2d6a4f;--green-light:#52b788;}
+*{margin:0;padding:0;box-sizing:border-box;}html{scroll-behavior:smooth;}
+body{background:var(--navy);color:var(--white);font-family:'Cormorant Garamond',serif;min-height:100vh;overflow-x:hidden;}
+body[dir="rtl"]{font-family:'Noto Sans Arabic','Cormorant Garamond',serif;}
+.geo-bg{position:fixed;inset:0;z-index:0;pointer-events:none;opacity:0.03;background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='100' height='100'%3E%3Cg fill='none' stroke='%23c8a84b' stroke-width='0.6'%3E%3Cpolygon points='50,5 95,27.5 95,72.5 50,95 5,72.5 5,27.5'/%3E%3Cpolygon points='50,18 82,35 82,65 50,82 18,65 18,35'/%3E%3Cpolygon points='50,31 69,42.5 69,57.5 50,69 31,57.5 31,42.5'/%3E%3Cline x1='50' y1='5' x2='50' y2='18'/%3E%3Cline x1='95' y1='27.5' x2='82' y2='35'/%3E%3Cline x1='95' y1='72.5' x2='82' y2='65'/%3E%3Cline x1='50' y1='95' x2='50' y2='82'/%3E%3Cline x1='5' y1='72.5' x2='18' y2='65'/%3E%3Cline x1='5' y1='27.5' x2='18' y2='35'/%3E%3C/g%3E%3C/svg%3E");background-size:100px 100px;}
+.gradient-overlay{position:fixed;inset:0;z-index:0;pointer-events:none;background:radial-gradient(ellipse at 20% 50%,rgba(25,48,94,.15) 0%,transparent 60%),radial-gradient(ellipse at 80% 20%,rgba(200,168,75,.05) 0%,transparent 50%),radial-gradient(ellipse at 50% 100%,rgba(25,48,94,.22) 0%,transparent 60%);}
+.container{position:relative;z-index:1;max-width:960px;margin:0 auto;padding:1.5rem 1.5rem 6rem;}
+.top-bar{display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:.5rem;margin-bottom:1.2rem;}
+.lang-bar{display:flex;flex-wrap:wrap;gap:.35rem;}
+.lang-btn{background:transparent;border:1px solid var(--gold-dim);color:var(--white-dim);padding:.2rem .65rem;border-radius:20px;cursor:pointer;font-family:inherit;font-size:.75rem;letter-spacing:.06em;transition:all .25s;}
+.lang-btn.active,.lang-btn:hover{border-color:var(--gold);color:var(--gold);background:rgba(200,168,75,.07);}
+.top-actions{display:flex;gap:.4rem;align-items:center;}
+.notify-btn{background:transparent;border:1px solid var(--gold-dim);color:var(--white-dim);padding:.2rem .65rem;border-radius:20px;cursor:pointer;font-family:inherit;font-size:.73rem;letter-spacing:.06em;transition:all .25s;}
+.notify-btn:hover,.notify-btn.on{border-color:var(--gold-light);color:var(--gold-light);}
+.install-btn{display:none;background:linear-gradient(135deg,var(--green),#40916c);border:none;border-radius:20px;color:white;padding:.2rem .65rem;cursor:pointer;font-family:inherit;font-size:.73rem;}
+.hero-wrap{position:relative;border-radius:14px;overflow:hidden;margin-bottom:1.6rem;height:255px;box-shadow:0 8px 40px rgba(0,0,0,.6);animation:fadeDown .9s ease;}
+.hero-img{width:100%;height:100%;object-fit:cover;object-position:center 60%;display:block;transition:transform 10s ease;}
+.hero-wrap:hover .hero-img{transform:scale(1.05);}
+.hero-overlay{position:absolute;inset:0;background:linear-gradient(to bottom,rgba(5,8,14,.1) 0%,rgba(5,8,14,.82) 100%);}
+.hero-text{position:absolute;bottom:0;left:0;right:0;padding:2rem 2rem 1.6rem;text-align:center;}
+.bismillah{font-family:'Amiri',serif;font-size:clamp(1.3rem,3.5vw,2rem);color:var(--gold-light);text-shadow:0 2px 20px rgba(0,0,0,.9);letter-spacing:.06em;display:block;margin-bottom:.4rem;}
+.divider-line{width:80px;height:1px;background:linear-gradient(to right,transparent,var(--gold),transparent);margin:.5rem auto;}
+.site-title{font-size:clamp(1.5rem,4vw,2.8rem);font-weight:300;letter-spacing:.16em;color:var(--white);text-transform:uppercase;text-shadow:0 2px 12px rgba(0,0,0,.9);}
+.site-subtitle{color:rgba(200,168,75,.75);font-size:.83rem;letter-spacing:.16em;margin-top:.3rem;}
+.mosque-wrap{text-align:center;opacity:.14;margin-bottom:1.3rem;}
+.mosque-wrap svg{width:100%;max-width:700px;height:78px;}
+.ad-banner{background:rgba(15,20,35,.5);border:1px dashed var(--gold-dim);border-radius:8px;padding:.6rem;text-align:center;margin-bottom:1.3rem;min-height:90px;display:flex;align-items:center;justify-content:center;color:var(--white-dim);font-size:.7rem;letter-spacing:.1em;}
+.nav-tabs{display:flex;justify-content:center;gap:.5rem;margin-bottom:1.4rem;flex-wrap:wrap;}
+.tab-btn{background:transparent;border:1px solid var(--gold-dim);color:var(--white-dim);padding:.35rem 1rem;border-radius:20px;cursor:pointer;font-family:inherit;font-size:.8rem;letter-spacing:.08em;transition:all .25s;}
+.tab-btn.active,.tab-btn:hover{border-color:var(--gold);color:var(--gold);background:rgba(200,168,75,.07);}
+.tab-content{display:none;}.tab-content.active{display:block;}
+.notif-banner{background:rgba(25,48,94,.4);border:1px solid rgba(200,168,75,.2);border-radius:10px;padding:1rem 1.2rem;display:flex;align-items:center;justify-content:space-between;gap:1rem;margin-bottom:1.3rem;flex-wrap:wrap;}
+.notif-text{font-size:.83rem;color:var(--white-dim);}
+.notif-text strong{color:var(--white);}
+.btn-notif{background:linear-gradient(135deg,var(--gold-dim),var(--gold));border:none;border-radius:5px;color:var(--navy);padding:.45rem .95rem;cursor:pointer;font-family:inherit;font-size:.78rem;font-weight:600;white-space:nowrap;}
+.search-section{margin-bottom:1.2rem;}
+.search-label{display:block;text-align:center;color:var(--white-dim);font-size:.8rem;letter-spacing:.13em;margin-bottom:.55rem;}
+.search-row{display:flex;gap:.45rem;max-width:540px;margin:0 auto;position:relative;}
+.search-input{flex:1;background:rgba(18,32,51,.8);border:1px solid var(--gold-dim);border-radius:5px;padding:.68rem 1rem;color:var(--white);font-family:inherit;font-size:.93rem;outline:none;transition:border-color .3s;}
+.search-input::placeholder{color:var(--white-dim);}
+.search-input:focus{border-color:var(--gold);}
+.btn-search{background:linear-gradient(135deg,var(--gold-dim),var(--gold));border:none;border-radius:5px;color:var(--navy);padding:.68rem 1.1rem;cursor:pointer;font-family:inherit;font-size:.86rem;font-weight:600;transition:opacity .25s,transform .2s;white-space:nowrap;}
+.btn-search:hover{opacity:.88;transform:translateY(-1px);}
+.suggestions{position:absolute;top:calc(100% + 4px);left:0;right:75px;background:var(--navy-mid);border:1px solid var(--gold-dim);border-radius:5px;z-index:50;display:none;max-height:200px;overflow-y:auto;box-shadow:0 8px 24px rgba(0,0,0,.5);}
+.sugg-item{padding:.5rem 1rem;cursor:pointer;font-size:.83rem;color:var(--white-dim);transition:background .2s;border-bottom:1px solid rgba(200,168,75,.05);}
+.sugg-item:hover{background:rgba(200,168,75,.08);color:var(--white);}
+.btn-auto{display:flex;align-items:center;justify-content:center;gap:.4rem;max-width:220px;margin:.55rem auto 0;background:transparent;border:1px solid var(--gold-dim);color:var(--white-dim);padding:.38rem 1rem;border-radius:5px;cursor:pointer;font-family:inherit;font-size:.76rem;letter-spacing:.08em;transition:all .25s;width:100%;}
+.btn-auto:hover{border-color:var(--gold);color:var(--gold);}
+.location-info{text-align:center;min-height:1.5rem;color:var(--gold);font-size:.98rem;letter-spacing:.1em;margin-bottom:1rem;}
+.datetime-bar{display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:.5rem;background:rgba(18,32,51,.55);border:1px solid rgba(200,168,75,.14);border-radius:8px;padding:.68rem 1.4rem;margin-bottom:1.5rem;}
+.dt-item{font-size:.78rem;color:var(--white-dim);letter-spacing:.07em;}
+.dt-item span{color:var(--gold);font-size:.9rem;}
+.prayers-grid{display:grid;grid-template-columns:repeat(6,1fr);gap:.68rem;margin-bottom:1.3rem;}
+@media(max-width:700px){.prayers-grid{grid-template-columns:repeat(3,1fr);}}
+@media(max-width:380px){.prayers-grid{grid-template-columns:repeat(2,1fr);}}
+.prayer-card{background:rgba(18,32,51,.55);border:1px solid rgba(200,168,75,.12);border-radius:10px;padding:.88rem .6rem;text-align:center;transition:all .3s;position:relative;overflow:hidden;}
+.prayer-card::after{content:'';position:absolute;top:0;left:0;right:0;height:2px;background:linear-gradient(to right,transparent,var(--gold-dim),transparent);opacity:0;transition:opacity .3s;}
+.prayer-card:hover{border-color:rgba(200,168,75,.35);transform:translateY(-3px);}
+.prayer-card:hover::after,.prayer-card.active::after{opacity:1;}
+.prayer-card.active{background:rgba(25,48,94,.6);border-color:var(--gold);box-shadow:0 0 22px rgba(200,168,75,.12);}
+.p-icon svg{width:25px;height:25px;margin-bottom:.25rem;}
+.p-name{font-size:.63rem;letter-spacing:.12em;color:var(--white-dim);text-transform:uppercase;margin-bottom:.14rem;}
+.p-arabic{font-family:'Amiri',serif;font-size:.86rem;color:var(--gold-light);margin-bottom:.32rem;}
+.p-time{font-size:1.35rem;font-weight:300;color:var(--white);letter-spacing:.04em;}
+.next-badge{display:inline-block;background:var(--gold);color:var(--navy);font-size:.5rem;font-weight:700;padding:.1rem .38rem;border-radius:10px;letter-spacing:.1em;margin-top:.22rem;}
+.countdown-wrap{text-align:center;margin-bottom:1.7rem;}
+.cd-label{color:var(--white-dim);font-size:.76rem;letter-spacing:.18em;text-transform:uppercase;margin-bottom:.32rem;}
+.cd-time{font-size:2.5rem;color:var(--gold);letter-spacing:.08em;text-shadow:0 0 24px rgba(200,168,75,.25);}
+.ornament{text-align:center;color:var(--gold-dim);font-size:.9rem;letter-spacing:.55em;margin:1.5rem 0;}
+.daily-grid{display:grid;grid-template-columns:1fr 1fr;gap:1.1rem;margin-bottom:1.5rem;}
+@media(max-width:580px){.daily-grid{grid-template-columns:1fr;}}
+.daily-card{background:rgba(18,32,51,.5);border:1px solid rgba(200,168,75,.18);border-radius:10px;padding:1.2rem;}
+.daily-card-header{display:flex;align-items:center;gap:.5rem;margin-bottom:.85rem;padding-bottom:.65rem;border-bottom:1px solid rgba(200,168,75,.12);}
+.daily-card-icon{font-size:1.05rem;}
+.daily-card-title{font-size:.68rem;letter-spacing:.18em;color:var(--gold);text-transform:uppercase;}
+.arabic-text{font-family:'Amiri',serif;font-size:1.15rem;color:var(--white);line-height:2.1;text-align:right;direction:rtl;margin-bottom:.65rem;}
+.translation{font-size:.84rem;color:var(--white-dim);line-height:1.75;font-style:italic;}
+.hadith-text{font-size:.88rem;color:var(--white);line-height:1.8;}
+.source-tag{margin-top:.65rem;font-size:.66rem;color:var(--gold-dim);letter-spacing:.1em;}
+.cities-section{margin-bottom:1.5rem;}
+.cities-title{font-size:.7rem;letter-spacing:.2em;color:var(--gold-dim);text-transform:uppercase;margin-bottom:.7rem;text-align:center;}
+.cities-grid{display:flex;flex-wrap:wrap;gap:.38rem;justify-content:center;}
+.city-pill{background:rgba(18,32,51,.4);border:1px solid rgba(200,168,75,.1);border-radius:20px;padding:.22rem .72rem;font-size:.73rem;color:var(--white-dim);cursor:pointer;transition:all .25s;}
+.city-pill:hover{border-color:var(--gold-dim);color:var(--gold);}
+/* RAMAZAN */
+.ramazan-hero{background:linear-gradient(135deg,rgba(45,106,79,.25),rgba(18,32,51,.7));border:1px solid rgba(82,183,136,.25);border-radius:12px;padding:1.8rem 1.4rem;margin-bottom:1.3rem;text-align:center;}
+.ramazan-ar{font-family:'Amiri',serif;font-size:2rem;color:var(--green-light);margin-bottom:.3rem;}
+.ramazan-sub{font-size:.75rem;letter-spacing:.18em;color:rgba(82,183,136,.65);text-transform:uppercase;margin-bottom:1rem;}
+.iftar-big{margin:.8rem 0 1.2rem;}
+.iftar-label{font-size:.72rem;letter-spacing:.2em;color:rgba(82,183,136,.65);text-transform:uppercase;margin-bottom:.3rem;}
+.iftar-time{font-size:3rem;color:var(--green-light);font-weight:300;letter-spacing:.08em;text-shadow:0 0 30px rgba(82,183,136,.3);}
+.iftar-cd-label{font-size:.7rem;letter-spacing:.18em;color:rgba(82,183,136,.55);margin-top:.3rem;text-transform:uppercase;}
+.iftar-cd{font-size:1.6rem;color:var(--green-light);letter-spacing:.08em;}
+.r-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:.8rem;margin-top:1.2rem;max-width:420px;margin-left:auto;margin-right:auto;}
+@media(max-width:440px){.r-grid{grid-template-columns:repeat(2,1fr);}}
+.r-card{background:rgba(45,106,79,.2);border:1px solid rgba(82,183,136,.2);border-radius:8px;padding:.8rem .5rem;text-align:center;}
+.r-card-label{font-size:.6rem;letter-spacing:.15em;color:rgba(82,183,136,.65);text-transform:uppercase;margin-bottom:.25rem;}
+.r-card-val{font-size:1.25rem;color:var(--green-light);}
+.country-note{font-size:.7rem;color:rgba(82,183,136,.45);margin-top:1rem;font-style:italic;}
+.no-city-msg{color:rgba(82,183,136,.55);font-size:.82rem;margin:.8rem 0;}
+.status-msg{text-align:center;padding:1.4rem;font-size:.86rem;letter-spacing:.1em;}
+.status-msg.loading{color:var(--gold-dim);animation:pulse 1.4s infinite;}
+.status-msg.error{color:#d07070;}
+.footer{text-align:center;color:var(--white-dim);font-size:.66rem;letter-spacing:.1em;margin-top:2rem;opacity:.5;line-height:2;}
+.footer a{color:var(--gold-dim);text-decoration:none;}
+@keyframes fadeDown{from{opacity:0;transform:translateY(-18px)}to{opacity:1;transform:translateY(0)}}
+@keyframes fadeUp{from{opacity:0;transform:translateY(18px)}to{opacity:1;transform:translateY(0)}}
+@keyframes pulse{0%,100%{opacity:.4}50%{opacity:1}}
+</style>
+</head>
+<body>
+<div class="geo-bg"></div>
+<div class="gradient-overlay"></div>
+<div class="container">
+
+  <div class="top-bar">
+    <div class="lang-bar">
+      <button class="lang-btn" onclick="setLang('tr')">TR</button>
+      <button class="lang-btn" onclick="setLang('en')">EN</button>
+      <button class="lang-btn" onclick="setLang('ar')">AR</button>
+      <button class="lang-btn" onclick="setLang('fa')">FA</button>
+      <button class="lang-btn" onclick="setLang('fr')">FR</button>
+      <button class="lang-btn" onclick="setLang('de')">DE</button>
+    </div>
+    <div class="top-actions">
+      <button class="notify-btn" id="notifyBtn" onclick="requestNotification()">🔔 <span id="notifyLabel">Bildirim</span></button>
+      <button class="install-btn" id="installBtn" onclick="installPWA()">📱 <span id="installLabel">Kur</span></button>
+    </div>
+  </div>
+
+  <div class="hero-wrap">
+    <img class="hero-img" id="heroImg" src="https://images.unsplash.com/photo-1519817650390-64a93db51149?w=1200&q=80" alt="Mosque">
+    <div class="hero-overlay"></div>
+    <div class="hero-text">
+      <span class="bismillah">بِسْمِ اللَّهِ الرَّحْمَٰنِ الرَّحِيمِ</span>
+      <div class="divider-line"></div>
+      <div class="site-title" id="siteTitle">Namaz Vakitleri</div>
+      <div class="site-subtitle" id="siteSubtitle">Dünyanın her yerinde — Her gün</div>
+    </div>
+  </div>
+
+  <div class="mosque-wrap">
+    <svg viewBox="0 0 700 90" xmlns="http://www.w3.org/2000/svg" fill="#c8a84b">
+      <ellipse cx="350" cy="52" rx="82" ry="36"/><rect x="268" y="52" width="164" height="38"/>
+      <ellipse cx="210" cy="63" rx="46" ry="23"/><rect x="164" y="63" width="92" height="27"/>
+      <ellipse cx="490" cy="63" rx="46" ry="23"/><rect x="444" y="63" width="92" height="27"/>
+      <rect x="108" y="18" width="18" height="72"/><polygon points="108,18 117,1 126,18"/><rect x="105" y="28" width="24" height="4"/>
+      <rect x="574" y="18" width="18" height="72"/><polygon points="574,18 583,1 592,18"/><rect x="571" y="28" width="24" height="4"/>
+      <rect x="38" y="32" width="13" height="58"/><polygon points="38,32 44.5,17 51,32"/>
+      <rect x="649" y="32" width="13" height="58"/><polygon points="649,32 655.5,17 662,32"/>
+      <rect x="0" y="88" width="700" height="2"/>
+    </svg>
+  </div>
+
+  <div class="ad-banner">
+    <span style="opacity:.3;font-size:.68rem;">REKLAM ALANI — Google AdSense</span>
+  </div>
+
+  <div class="nav-tabs">
+    <button class="tab-btn active" onclick="showTab('home')" id="tab-home">🕌 <span id="tabHome">Vakitler</span></button>
+    <button class="tab-btn" onclick="showTab('ramazan')" id="tab-ramazan">🌙 <span id="tabRamazan">Ramazan</span></button>
+  </div>
+
+  <!-- TAB: VAKİTLER -->
+  <div class="tab-content active" id="tab-content-home">
+    <div class="notif-banner" id="notifBanner">
+      <div class="notif-text">🔔 <strong id="notifStrong">Namaz vakti bildirimleri al!</strong>&nbsp;<span id="notifDesc">Her vakitten önce telefona hatırlatma.</span></div>
+      <button class="btn-notif" onclick="requestNotification()" id="notifBannerBtn">Aktif Et</button>
+    </div>
+    <div class="search-section">
+      <span class="search-label" id="searchLabel">Şehir, kasaba veya köy arayın</span>
+      <div class="search-row">
+        <input type="text" class="search-input" id="cityInput" placeholder="İstanbul, London, Dubai..." autocomplete="off"/>
+        <div class="suggestions" id="suggestions"></div>
+        <button class="btn-search" id="searchBtn" onclick="searchCity()">Ara</button>
+      </div>
+      <button class="btn-auto" onclick="autoLocate()">📍 <span id="autoLabel">Konumumu Algıla</span></button>
+    </div>
+    <div class="location-info" id="locationInfo"></div>
+    <div class="datetime-bar" id="datetimeBar" style="display:none">
+      <div class="dt-item" id="dateDisplay"></div>
+      <div class="dt-item" id="hijriDisplay"></div>
+      <div class="dt-item">🕐 <span id="clockDisplay">--:--:--</span></div>
+    </div>
+    <div id="prayerSection" style="display:none">
+      <div class="prayers-grid" id="prayersGrid"></div>
+      <div class="countdown-wrap">
+        <div class="cd-label" id="countdownLabel">Sonraki vakite kalan</div>
+        <div class="cd-time" id="countdown">--:--:--</div>
+      </div>
+    </div>
+    <div id="statusMsg" class="status-msg" style="display:none"></div>
+    <div class="ornament">✦ ✦ ✦</div>
+    <div class="ad-banner" style="margin-bottom:1.3rem;"><span style="opacity:.3;font-size:.68rem;">REKLAM ALANI — Google AdSense</span></div>
+    <div class="daily-grid">
+      <div class="daily-card">
+        <div class="daily-card-header"><span class="daily-card-icon">📖</span><span class="daily-card-title" id="ayahTitle">Günün Ayeti</span></div>
+        <div class="arabic-text" id="ayahArabic"></div>
+        <div class="translation" id="ayahTranslation"></div>
+        <div class="source-tag" id="ayahSource"></div>
+      </div>
+      <div class="daily-card">
+        <div class="daily-card-header"><span class="daily-card-icon">🌙</span><span class="daily-card-title" id="hadithTitle">Günün Hadisi</span></div>
+        <div class="hadith-text" id="hadithText"></div>
+        <div class="source-tag" id="hadithSource"></div>
+      </div>
+    </div>
+    <div class="cities-section">
+      <div class="cities-title" id="citiesTitle">Popüler Şehirler</div>
+      <div class="cities-grid" id="citiesGrid"></div>
+    </div>
+    <div class="ad-banner"><span style="opacity:.3;font-size:.68rem;">REKLAM ALANI — Google AdSense</span></div>
+  </div>
+
+  <!-- TAB: RAMAZAN -->
+  <div class="tab-content" id="tab-content-ramazan">
+    <div class="ramazan-hero">
+      <div class="ramazan-ar">رَمَضَان مُبَارَك</div>
+      <div class="ramazan-sub" id="ramazanSubtitle">Ramazan 2025</div>
+      <div class="iftar-big" id="iftarSection" style="display:none">
+        <div class="iftar-label" id="iftarLabel">Bugün İftar</div>
+        <div class="iftar-time" id="iftarTime">--:--</div>
+        <div class="iftar-cd-label" id="iftarCdLabel">İftara Kalan</div>
+        <div class="iftar-cd" id="iftarCd">--:--:--</div>
+      </div>
+      <div class="no-city-msg" id="noCityMsg"></div>
+      <div class="r-grid">
+        <div class="r-card">
+          <div class="r-card-label" id="ramDayLabel">Ramazanın</div>
+          <div class="r-card-val" id="ramDayVal">--</div>
+        </div>
+        <div class="r-card">
+          <div class="r-card-label" id="bayramLabel">Bayrama Kalan</div>
+          <div class="r-card-val" id="bayramVal">--</div>
+        </div>
+        <div class="r-card">
+          <div class="r-card-label" id="sahurLabel">İmsak / Sahur</div>
+          <div class="r-card-val" id="sahurTime">--:--</div>
+        </div>
+      </div>
+      <div class="country-note" id="countryNote">* Ramazan başlangıcı ülkeden ülkeye farklılık gösterebilir.</div>
+    </div>
+    <div class="search-section">
+      <span class="search-label" id="ramSearchLabel">Şehrinizi seçin — iftar vaktini görün</span>
+      <div class="search-row">
+        <input type="text" class="search-input" id="ramCityInput" placeholder="İstanbul, London, Dubai..." autocomplete="off"/>
+        <div class="suggestions" id="ramSuggestions"></div>
+        <button class="btn-search" id="ramSearchBtn" onclick="searchRamCity()">Ara</button>
+      </div>
+      <button class="btn-auto" onclick="autoLocateRam()">📍 <span id="ramAutoLabel">Konumumu Algıla</span></button>
+    </div>
+    <div class="daily-grid">
+      <div class="daily-card">
+        <div class="daily-card-header"><span class="daily-card-icon">📖</span><span class="daily-card-title" id="ramAyahTitle">Ramazan Ayeti</span></div>
+        <div class="arabic-text">شَهْرُ رَمَضَانَ الَّذِي أُنزِلَ فِيهِ الْقُرْآنُ هُدًى لِّلنَّاسِ</div>
+        <div class="translation" id="ramAyahTr"></div>
+        <div class="source-tag">— Bakara 2:185</div>
+      </div>
+      <div class="daily-card">
+        <div class="daily-card-header"><span class="daily-card-icon">🌙</span><span class="daily-card-title" id="ramDuaTitle">Sahur & İftar Duası</span></div>
+        <div class="arabic-text" style="font-size:.9rem;">نَوَيْتُ صَوْمَ غَدٍ عَنْ أَدَاءِ فَرْضِ رَمَضَانَ</div>
+        <div class="translation" id="ramSahurDua"></div>
+        <div class="arabic-text" style="font-size:.9rem;margin-top:.5rem;">اللَّهُمَّ لَكَ صُمْتُ وَعَلَى رِزْقِكَ أَفْطَرْتُ</div>
+        <div class="translation" id="ramIftarDua"></div>
+      </div>
+    </div>
+    <div class="ad-banner"><span style="opacity:.3;font-size:.68rem;">REKLAM ALANI</span></div>
+  </div>
+
+  <div class="footer">
+    Namaz vakitleri · <a href="https://aladhan.com" target="_blank">Aladhan API</a> &nbsp;·&nbsp;
+    Fotoğraflar · <a href="https://unsplash.com" target="_blank">Unsplash</a> &nbsp;·&nbsp;
+    <span id="footerRights">Tüm hakları saklıdır</span>
+  </div>
+</div>
+
+<script>
+// ╔═══════════════════════════════════════════════════════════╗
+// ║                   ⚙️  AYARLAR / SETTINGS                 ║
+// ╠═══════════════════════════════════════════════════════════╣
+// ║                                                           ║
+// ║  1) UNSPLASH KEY → Buraya kendi key'ini yapıştır:        ║
+const UNSPLASH_KEY = 'YOUR_UNSPLASH_KEY'; // <── BURAYA YAZ   ║
+// ║                                                           ║
+// ║  2) TÜRKÇE DOMAIN → Satın aldığın TR domain:             ║
+const TR_DOMAIN = 'namazvakitleri.com';   // <── BURAYA YAZ   ║
+// ║                                                           ║
+// ║  3) İNGİLİZCE DOMAIN → Satın aldığın EN domain:          ║
+const EN_DOMAIN = 'prayertimes.com';      // <── BURAYA YAZ   ║
+// ║                                                           ║
+// ╚═══════════════════════════════════════════════════════════╝
+
+// Ramazan 2025 başlangıç ve bitiş (Ülkeye göre 1-2 gün fark olabilir)
+// Türkiye resmi: 1 Mart 2025, Diyanet
+const RAMAZAN_START = new Date('2025-03-01T00:00:00');
+const RAMAZAN_END   = new Date('2025-03-30T00:00:00'); // 29 gün
+const BAYRAM_START  = new Date('2025-03-30T00:00:00');
+
+// ── TRANSLATIONS ──────────────────────────────────────────────
+const T = {
+  tr:{
+    siteTitle:'Namaz Vakitleri',siteSubtitle:'Dünyanın her yerinde — Her gün',
+    searchLabel:'Şehir, kasaba veya köy arayın',searchBtn:'Ara',autoLabel:'Konumumu Algıla',
+    ayahTitle:'Günün Ayeti',hadithTitle:'Günün Hadisi',
+    countdownLabel:'Sonraki vakite kalan',nextBadge:'SIRADAKI',
+    loading:'Yükleniyor',geoError:'Konum alınamadı.',notFound:'Şehir bulunamadı.',
+    notifyLabel:'Bildirim',notifStrong:'Namaz vakti bildirimleri al!',
+    notifDesc:'Her vakitten önce telefona hatırlatma.',notifActivate:'Aktif Et',
+    installLabel:'Kur',tabHome:'Vakitler',tabRamazan:'Ramazan',
+    citiesTitle:'Popüler Şehirler',ramazanSubtitle:'Ramazan 2025',
+    iftarLabel:'Bugün İftar',iftarCdLabel:'İftara Kalan',
+    sahurLabel:'İmsak / Sahur',ramDayLabel:'Ramazanın',bayramLabel:'Bayrama Kalan',
+    ramDaySuffix:'. Günü',bayramSuffix:' Gün',
+    countryNote:'* Ramazan başlangıcı ülkeden ülkeye farklılık gösterebilir.',
+    ramSearchLabel:'Şehrinizi seçin — iftar vaktini görün',ramAutoLabel:'Konumumu Algıla',ramSearchBtn:'Ara',
+    ramAyahTitle:'Ramazan Ayeti',
+    ramAyahTr:'Ramazan ayı, insanlara rehber ve doğruyu yanlıştan ayıran Kur\'an\'ın indirildiği aydır.',
+    ramDuaTitle:'Sahur & İftar Duası',
+    ramSahurDua:'Sahur niyeti: "Yarınki Ramazan orucunu tutmaya niyet ettim."',
+    ramIftarDua:'İftar duası: "Allah\'ım! Senin için oruç tuttum, senin rızkınla oruç açtım."',
+    noCityMsg:'İftar vaktini görmek için şehrinizi seçin ↑',
+    footerRights:'Tüm hakları saklıdır',
+    prayers:['İmsak','Güneş','Öğle','İkindi','Akşam','Yatsı'],
+    prayersAr:['الفجر','الشروق','الظهر','العصر','المغرب','العشاء'],
+  },
+  en:{
+    siteTitle:'Prayer Times',siteSubtitle:'Anywhere in the world — Every day',
+    searchLabel:'Search any city, town or village',searchBtn:'Search',autoLabel:'Detect My Location',
+    ayahTitle:"Today's Verse",hadithTitle:"Today's Hadith",
+    countdownLabel:'Time until next prayer',nextBadge:'NEXT',
+    loading:'Loading',geoError:'Could not get location.',notFound:'City not found.',
+    notifyLabel:'Notify',notifStrong:'Get prayer time notifications!',
+    notifDesc:'Reminders before each prayer.',notifActivate:'Enable',
+    installLabel:'Install',tabHome:'Prayer Times',tabRamazan:'Ramadan',
+    citiesTitle:'Popular Cities',ramazanSubtitle:'Ramadan 2025',
+    iftarLabel:"Today's Iftar",iftarCdLabel:'Time Until Iftar',
+    sahurLabel:'Suhoor / Fajr',ramDayLabel:'Ramadan Day',bayramLabel:'Days Until Eid',
+    ramDaySuffix:'',bayramSuffix:' Days',
+    countryNote:'* Ramadan start date may vary by country.',
+    ramSearchLabel:'Select your city to see iftar time',ramAutoLabel:'Detect My Location',ramSearchBtn:'Search',
+    ramAyahTitle:'Ramadan Verse',
+    ramAyahTr:'Ramadan is the month in which the Quran was revealed as guidance for mankind.',
+    ramDuaTitle:'Suhoor & Iftar Dua',
+    ramSahurDua:'Suhoor intention: "I intend to fast tomorrow for the obligatory fast of Ramadan."',
+    ramIftarDua:'Iftar dua: "O Allah! I fasted for You and break my fast with Your sustenance."',
+    noCityMsg:'Select your city to see iftar time ↑',
+    footerRights:'All rights reserved',
+    prayers:['Fajr','Sunrise','Dhuhr','Asr','Maghrib','Isha'],
+    prayersAr:['الفجر','الشروق','الظهر','العصر','المغرب','العشاء'],
+  },
+  ar:{
+    siteTitle:'أوقات الصلاة',siteSubtitle:'في كل مكان — كل يوم',
+    searchLabel:'ابحث عن أي مدينة أو قرية',searchBtn:'بحث',autoLabel:'تحديد موقعي',
+    ayahTitle:'آية اليوم',hadithTitle:'حديث اليوم',
+    countdownLabel:'الوقت حتى الصلاة القادمة',nextBadge:'التالي',
+    loading:'جارٍ التحميل',geoError:'تعذر تحديد الموقع.',notFound:'المدينة غير موجودة.',
+    notifyLabel:'إشعار',notifStrong:'احصل على إشعارات أوقات الصلاة!',
+    notifDesc:'تذكير قبل كل صلاة.',notifActivate:'تفعيل',
+    installLabel:'تثبيت',tabHome:'أوقات الصلاة',tabRamazan:'رمضان',
+    citiesTitle:'المدن الشائعة',ramazanSubtitle:'رمضان 1446',
+    iftarLabel:'إفطار اليوم',iftarCdLabel:'الوقت حتى الإفطار',
+    sahurLabel:'السحور / الفجر',ramDayLabel:'يوم رمضان',bayramLabel:'أيام حتى العيد',
+    ramDaySuffix:'',bayramSuffix:' أيام',
+    countryNote:'* قد يختلف بداية رمضان من بلد لآخر.',
+    ramSearchLabel:'اختر مدينتك لرؤية وقت الإفطار',ramAutoLabel:'تحديد موقعي',ramSearchBtn:'بحث',
+    ramAyahTitle:'آية رمضان',
+    ramAyahTr:'شَهْرُ رَمَضَانَ الَّذِي أُنزِلَ فِيهِ الْقُرْآنُ هُدًى لِّلنَّاسِ وَبَيِّنَاتٍ مِّنَ الْهُدَىٰ وَالْفُرْقَانِ',
+    ramDuaTitle:'دعاء السحور والإفطار',
+    ramSahurDua:'نية السحور: نويت صوم غد عن أداء فرض رمضان.',
+    ramIftarDua:'دعاء الإفطار: اللهم لك صمت وعلى رزقك أفطرت.',
+    noCityMsg:'اختر مدينتك لرؤية وقت الإفطار ↑',
+    footerRights:'جميع الحقوق محفوظة',
+    prayers:['الفجر','الشروق','الظهر','العصر','المغرب','العشاء'],
+    prayersAr:['الفجر','الشروق','الظهر','العصر','المغرب','العشاء'],
+  },
+  fa:{
+    siteTitle:'اوقات نماز',siteSubtitle:'در هر کجای جهان — هر روز',
+    searchLabel:'جستجوی شهر یا روستا',searchBtn:'جستجو',autoLabel:'موقعیت من',
+    ayahTitle:'آیه روز',hadithTitle:'حدیث روز',
+    countdownLabel:'زمان تا نماز بعدی',nextBadge:'بعدی',
+    loading:'در حال بارگذاری',geoError:'موقعیت دریافت نشد.',notFound:'شهر پیدا نشد.',
+    notifyLabel:'اعلان',notifStrong:'اعلان اوقات نماز!',
+    notifDesc:'یادآوری قبل از هر نماز.',notifActivate:'فعال کردن',
+    installLabel:'نصب',tabHome:'اوقات نماز',tabRamazan:'رمضان',
+    citiesTitle:'شهرهای محبوب',ramazanSubtitle:'رمضان ۱۴۴۶',
+    iftarLabel:'افطار امروز',iftarCdLabel:'زمان تا افطار',
+    sahurLabel:'سحر / صبح',ramDayLabel:'روز رمضان',bayramLabel:'روز تا عید',
+    ramDaySuffix:'',bayramSuffix:' روز',
+    countryNote:'* شروع رمضان ممکن است در کشورها متفاوت باشد.',
+    ramSearchLabel:'شهر خود را انتخاب کنید',ramAutoLabel:'موقعیت من',ramSearchBtn:'جستجو',
+    ramAyahTitle:'آیه رمضان',
+    ramAyahTr:'ماه رمضان ماهی است که قرآن در آن نازل شد، هدایتی برای مردم.',
+    ramDuaTitle:'دعای سحر و افطار',
+    ramSahurDua:'نیت سحر: نیت روزه فردا برای ماه رمضان.',
+    ramIftarDua:'دعای افطار: خدایا برای تو روزه گرفتم و با روزی تو افطار می‌کنم.',
+    noCityMsg:'شهر خود را انتخاب کنید ↑',
+    footerRights:'تمام حقوق محفوظ است',
+    prayers:['صبح','طلوع','ظهر','عصر','مغرب','عشا'],
+    prayersAr:['الفجر','الشروق','الظهر','العصر','المغرب','العشاء'],
+  },
+  fr:{
+    siteTitle:'Horaires de Prière',siteSubtitle:'Partout dans le monde — Chaque jour',
+    searchLabel:'Rechercher une ville ou un village',searchBtn:'Chercher',autoLabel:'Ma position',
+    ayahTitle:'Verset du jour',hadithTitle:'Hadith du jour',
+    countdownLabel:'Avant la prochaine prière',nextBadge:'SUIVANT',
+    loading:'Chargement',geoError:'Position introuvable.',notFound:'Ville introuvable.',
+    notifyLabel:'Notif',notifStrong:'Rappels de prière!',
+    notifDesc:'Rappel avant chaque prière.',notifActivate:'Activer',
+    installLabel:'Installer',tabHome:'Horaires',tabRamazan:'Ramadan',
+    citiesTitle:'Villes populaires',ramazanSubtitle:'Ramadan 2025',
+    iftarLabel:"Iftar aujourd'hui",iftarCdLabel:"Avant l'Iftar",
+    sahurLabel:'Suhur / Fajr',ramDayLabel:'Jour du Ramadan',bayramLabel:"Jours avant l'Aïd",
+    ramDaySuffix:'',bayramSuffix:' Jours',
+    countryNote:'* La date de début du Ramadan varie selon les pays.',
+    ramSearchLabel:'Choisissez votre ville',ramAutoLabel:'Ma position',ramSearchBtn:'Chercher',
+    ramAyahTitle:'Verset du Ramadan',
+    ramAyahTr:'Le mois de Ramadan est celui où le Coran a été révélé comme guide pour l\'humanité.',
+    ramDuaTitle:'Dua Suhur & Iftar',
+    ramSahurDua:'Intention du Suhur: "J\'ai l\'intention de jeûner demain pour le Ramadan."',
+    ramIftarDua:'Dua de l\'Iftar: "Ô Allah! J\'ai jeûné pour Toi et je romps le jeûne avec Ta subsistance."',
+    noCityMsg:'Sélectionnez votre ville pour voir l\'heure de l\'iftar ↑',
+    footerRights:'Tous droits réservés',
+    prayers:['Fajr','Lever du soleil','Dhuhr','Asr','Maghrib','Isha'],
+    prayersAr:['الفجر','الشروق','الظهر','العصر','المغرب','العشاء'],
+  },
+  de:{
+    siteTitle:'Gebetszeiten',siteSubtitle:'Überall auf der Welt — Jeden Tag',
+    searchLabel:'Stadt, Dorf oder Gemeinde suchen',searchBtn:'Suchen',autoLabel:'Mein Standort',
+    ayahTitle:'Vers des Tages',hadithTitle:'Hadith des Tages',
+    countdownLabel:'Bis zum nächsten Gebet',nextBadge:'NÄCHSTE',
+    loading:'Lädt',geoError:'Standort nicht gefunden.',notFound:'Stadt nicht gefunden.',
+    notifyLabel:'Benachr.',notifStrong:'Gebetszeit-Erinnerungen!',
+    notifDesc:'Erinnerung vor jedem Gebet.',notifActivate:'Aktivieren',
+    installLabel:'Installieren',tabHome:'Gebetszeiten',tabRamazan:'Ramadan',
+    citiesTitle:'Beliebte Städte',ramazanSubtitle:'Ramadan 2025',
+    iftarLabel:'Iftar heute',iftarCdLabel:'Zeit bis zum Iftar',
+    sahurLabel:'Suhur / Fajr',ramDayLabel:'Ramadan-Tag',bayramLabel:'Tage bis zum Eid',
+    ramDaySuffix:'',bayramSuffix:' Tage',
+    countryNote:'* Das Startdatum des Ramadans kann je nach Land variieren.',
+    ramSearchLabel:'Wählen Sie Ihre Stadt',ramAutoLabel:'Mein Standort',ramSearchBtn:'Suchen',
+    ramAyahTitle:'Ramadan-Vers',
+    ramAyahTr:'Der Ramadan ist der Monat, in dem der Koran als Führung für die Menschen offenbart wurde.',
+    ramDuaTitle:'Suhur & Iftar Dua',
+    ramSahurDua:'Suhur-Absicht: "Ich beabsichtige morgen für den Ramadan zu fasten."',
+    ramIftarDua:'Iftar-Dua: "O Allah! Ich habe für Dich gefastet und breche das Fasten mit Deiner Versorgung."',
+    noCityMsg:'Wählen Sie Ihre Stadt, um die Iftar-Zeit zu sehen ↑',
+    footerRights:'Alle Rechte vorbehalten',
+    prayers:['Fajr','Sonnenaufgang','Dhuhr','Asr','Maghrib','Isha'],
+    prayersAr:['الفجر','الشروق','الظهر','العصر','المغرب','العشاء'],
+  }
+};
+
+const ICONS=[
+  `<svg viewBox="0 0 32 32" fill="none"><path d="M20 6C14.477 6 10 10.477 10 16s4.477 10 10 10c1.07 0 2.1-.168 3.07-.48C19.14 27.18 15.19 28 11 28 5.477 28 1 23.523 1 18S5.477 8 11 8c.34 0 .677.017 1.01.05A9.97 9.97 0 0020 6z" fill="#c8a84b"/><circle cx="23" cy="8" r="1.5" fill="#c8a84b"/><circle cx="27" cy="5" r="1" fill="#c8a84b"/></svg>`,
+  `<svg viewBox="0 0 32 32" fill="none"><circle cx="16" cy="18" r="6" fill="#c8a84b"/><line x1="16" y1="4" x2="16" y2="8" stroke="#c8a84b" stroke-width="2" stroke-linecap="round"/><line x1="5" y1="9" x2="8" y2="12" stroke="#c8a84b" stroke-width="2" stroke-linecap="round"/><line x1="27" y1="9" x2="24" y2="12" stroke="#c8a84b" stroke-width="2" stroke-linecap="round"/><line x1="2" y1="20" x2="30" y2="20" stroke="#c8a84b" stroke-width="2" stroke-linecap="round"/></svg>`,
+  `<svg viewBox="0 0 32 32" fill="none"><circle cx="16" cy="16" r="6" fill="#c8a84b"/><line x1="16" y1="4" x2="16" y2="8" stroke="#c8a84b" stroke-width="2" stroke-linecap="round"/><line x1="16" y1="24" x2="16" y2="28" stroke="#c8a84b" stroke-width="2" stroke-linecap="round"/><line x1="4" y1="16" x2="8" y2="16" stroke="#c8a84b" stroke-width="2" stroke-linecap="round"/><line x1="24" y1="16" x2="28" y2="16" stroke="#c8a84b" stroke-width="2" stroke-linecap="round"/></svg>`,
+  `<svg viewBox="0 0 32 32" fill="none"><circle cx="16" cy="19" r="6" fill="#c8a84b"/><line x1="16" y1="7" x2="16" y2="11" stroke="#c8a84b" stroke-width="2" stroke-linecap="round"/><line x1="5" y1="10" x2="8" y2="13" stroke="#c8a84b" stroke-width="2" stroke-linecap="round"/><line x1="27" y1="10" x2="24" y2="13" stroke="#c8a84b" stroke-width="2" stroke-linecap="round"/></svg>`,
+  `<svg viewBox="0 0 32 32" fill="none"><path d="M8 20a8 8 0 0116 0" stroke="#c8a84b" stroke-width="2" fill="none" stroke-linecap="round"/><line x1="16" y1="8" x2="16" y2="12" stroke="#c8a84b" stroke-width="2" stroke-linecap="round"/><line x1="2" y1="20" x2="30" y2="20" stroke="#c8a84b" stroke-width="2" stroke-linecap="round"/></svg>`,
+  `<svg viewBox="0 0 32 32" fill="none"><path d="M22 8C17.582 8 14 11.582 14 16s3.582 8 8 8c.748 0 1.47-.1 2.155-.287C21.336 25.22 18.28 26 15 26c-5.523 0-10-4.477-10-10S9.477 6 15 6c.34 0 .677.017 1.01.05A7.977 7.977 0 0022 8z" fill="#c8a84b"/><circle cx="26" cy="6" r="1.2" fill="#e8cb72"/><circle cx="29" cy="10" r=".8" fill="#e8cb72"/><circle cx="24" cy="13" r=".8" fill="#e8cb72"/></svg>`
+];
+
+const AYAHS=[
+  {ar:'وَمَن يَتَوَكَّلْ عَلَى اللَّهِ فَهُوَ حَسْبُهُ',tr:'Kim Allah\'a tevekkül ederse O ona yeter.',en:'Whoever relies upon Allah — He is sufficient.',fr:'Quiconque se repose sur Allah, Il lui suffira.',de:'Wer sich auf Allah verlässt, dem genügt Er.',fa:'هر کس بر خدا توکل کند، خدا او را کافی است.',ar2:'وَمَن يَتَوَكَّلْ عَلَى اللَّهِ فَهُوَ حَسْبُهُ',src:'Talak 65:3'},
+  {ar:'إِنَّ مَعَ الْعُسْرِ يُسْرًا',tr:'Şüphesiz güçlükle birlikte kolaylık vardır.',en:'Indeed, with hardship will be ease.',fr:'Certes, avec la difficulté vient la facilité.',de:'Wahrlich, mit Schwierigkeit kommt Erleichterung.',fa:'همانا با دشواری آسانی است.',src:'İnşirah 94:6'},
+  {ar:'فَاذْكُرُونِي أَذْكُرْكُمْ',tr:'Siz beni zikredin ki ben de sizi zikredeyim.',en:'Remember Me and I will remember you.',fr:'Souvenez-vous de Moi, Je Me souviendrai.',de:'Gedenkt Meiner, Ich werde eurer gedenken.',fa:'مرا یاد کنید تا من شما را یاد کنم.',src:'Bakara 2:152'},
+  {ar:'وَهُوَ مَعَكُمْ أَيْنَ مَا كُنتُمْ',tr:'Nerede olursanız olun O sizinle beraberdir.',en:'He is with you wherever you are.',fr:'Il est avec vous où que vous soyez.',de:'Er ist bei euch, wo immer ihr seid.',fa:'او با شماست هر کجا که باشید.',src:'Hadid 57:4'},
+  {ar:'إِنَّ اللَّهَ مَعَ الصَّابِرِينَ',tr:'Şüphesiz Allah sabredenlerle beraberdir.',en:'Indeed, Allah is with the patient.',fr:'Allah est avec les patients.',de:'Allah ist mit den Geduldigen.',fa:'همانا خداوند با صابران است.',src:'Bakara 2:153'},
+  {ar:'وَلَا تَيْأَسُوا مِن رَّوْحِ اللَّهِ',tr:'Allah\'ın rahmetinden ümit kesmeyiniz.',en:'Do not despair of the mercy of Allah.',fr:'Ne désespérez pas de la miséricorde d\'Allah.',de:'Verzweifelt nicht an Allahs Erbarmen.',fa:'از رحمت خداوند ناامید نشوید.',src:'Yusuf 12:87'},
+  {ar:'حَسْبُنَا اللَّهُ وَنِعْمَ الْوَكِيلُ',tr:'Allah bize yeter, O ne güzel vekildir.',en:'Allah is sufficient for us, and He is the best disposer.',fr:'Allah nous suffit, c\'est le meilleur des garants.',de:'Allah genügt uns, der beste Sachwalter.',fa:'خدا ما را کافی است.',src:'Al-i İmran 3:173'},
+];
+
+const HADITHS=[
+  {tr:'Ameller niyetlere göredir. Herkes niyetinin karşılığını alır.',en:'Actions are judged by intentions. Everyone gets what they intended.',fr:'Les actes sont jugés selon les intentions.',de:'Taten werden nach Absichten beurteilt.',fa:'اعمال بر اساس نیت‌هاست.',src:'Buhârî & Müslim'},
+  {tr:'Müslüman, dilinden ve elinden diğer Müslümanların emin olduğu kimsedir.',en:'A Muslim is one from whose tongue and hand other Muslims are safe.',fr:'Le musulman est celui dont les musulmans sont à l\'abri de sa langue et de sa main.',de:'Ein Muslim ist derjenige, vor dessen Zunge und Hand alle sicher sind.',fa:'مسلمان کسی است که مسلمانان از دست و زبانش در امان باشند.',src:'Buhârî & Müslim'},
+  {tr:'Allah\'ın en çok sevdiği amel, az da olsa devamlı yapılandır.',en:'The most beloved deed to Allah is the most regular, even if little.',fr:'L\'acte le plus aimé d\'Allah est le plus régulier, même petit.',de:'Die Allah liebste Tat ist die regelmäßigste, auch wenn sie gering ist.',fa:'محبوب‌ترین عمل نزد خدا، عملی است که مداوم باشد.',src:'Buhârî & Müslim'},
+  {tr:'Güler yüzle kardeşine bakmak sadakadır.',en:'Your smiling in your brother\'s face is a charity.',fr:'Ton sourire à ton frère est une aumône.',de:'Dein Lächeln deinem Bruder ist eine Almosen.',fa:'تبسم تو به روی برادرت صدقه است.',src:'Tirmizî'},
+  {tr:'İlim öğrenmek her Müslümana farzdır.',en:'Seeking knowledge is obligatory upon every Muslim.',fr:'La recherche du savoir est une obligation pour tout musulman.',de:'Das Suchen nach Wissen ist Pflicht für jeden Muslim.',fa:'کسب علم بر هر مسلمانی واجب است.',src:'İbn Mâce'},
+  {tr:'Komşusu açken tok yatan bizden değildir.',en:'He is not a believer who eats his fill while his neighbor goes hungry.',fr:'Il n\'est pas des nôtres celui qui se rassasie alors que son voisin est affamé.',de:'Er gehört nicht zu uns, der satt schläft, während sein Nachbar hungert.',fa:'از ما نیست کسی که سیر بخوابد در حالی که همسایه‌اش گرسنه باشد.',src:'Buhârî'},
+  {tr:'Sizin en hayırlınız ahlakı en güzel olanınızdır.',en:'The best among you are those with the best character.',fr:'Le meilleur d\'entre vous est celui qui a le meilleur caractère.',de:'Die Besten unter euch sind jene mit dem besten Charakter.',fa:'بهترین شما کسی است که اخلاقش نیکوتر است.',src:'Buhârî & Müslim'},
+];
+
+const CITIES=[
+  {n:'İstanbul',lat:41.0082,lon:28.9784},{n:'Ankara',lat:39.9208,lon:32.8541},
+  {n:'İzmir',lat:38.4192,lon:27.1287},{n:'London',lat:51.5074,lon:-0.1278},
+  {n:'Berlin',lat:52.52,lon:13.405},{n:'Paris',lat:48.8566,lon:2.3522},
+  {n:'Amsterdam',lat:52.3676,lon:4.9041},{n:'Brussels',lat:50.8503,lon:4.3517},
+  {n:'Dubai',lat:25.2048,lon:55.2708},{n:'Cairo',lat:30.0444,lon:31.2357},
+  {n:'Riyadh',lat:24.7136,lon:46.6753},{n:'Mecca',lat:21.3891,lon:39.8579},
+  {n:'Medina',lat:24.5247,lon:39.5692},{n:'Jakarta',lat:-6.2088,lon:106.8456},
+  {n:'Kuala Lumpur',lat:3.139,lon:101.6869},{n:'Tehran',lat:35.6892,lon:51.389},
+  {n:'Karachi',lat:24.8607,lon:67.0011},{n:'New York',lat:40.7128,lon:-74.006},
+  {n:'Toronto',lat:43.6532,lon:-79.3832},{n:'Sydney',lat:-33.8688,lon:151.2093},
+];
+
+// STATE
+let currentLang='tr', prayerData=null, clockInt=null, cdInt=null, iftarInt=null, deferredPrompt=null;
+
+// ── DOMAIN → OTOMATİK DİL ─────────────────────────────────────
+function detectLangFromDomain(){
+  const host = window.location.hostname.toLowerCase();
+  if(host.includes(EN_DOMAIN.toLowerCase()) || host.includes('prayertimes') || host.includes('prayer-times')){
+    return 'en';
+  }
+  // Default: Türkçe (TR domain veya localhost)
+  return 'tr';
+}
+
+// ── PWA ────────────────────────────────────────────────────────
+window.addEventListener('beforeinstallprompt',e=>{
+  e.preventDefault(); deferredPrompt=e;
+  document.getElementById('installBtn').style.display='block';
+});
+function installPWA(){
+  if(deferredPrompt){ deferredPrompt.prompt(); deferredPrompt=null; document.getElementById('installBtn').style.display='none'; }
+}
+
+// ── PUSH NOTIFICATION ─────────────────────────────────────────
+async function requestNotification(){
+  if(!('Notification' in window)){ alert('Tarayıcınız bildirimleri desteklemiyor.'); return; }
+  const p=await Notification.requestPermission();
+  if(p==='granted'){
+    document.getElementById('notifyBtn').classList.add('on');
+    document.getElementById('notifyBtn').innerHTML='🔔 ✓';
+    document.getElementById('notifBanner').style.display='none';
+    if(prayerData) schedulePrayerNotifs();
+  }
+}
+function schedulePrayerNotifs(){
+  const keys=['Fajr','Sunrise','Dhuhr','Asr','Maghrib','Isha'];
+  const names=T[currentLang].prayers;
+  const loc=document.getElementById('locationInfo').textContent;
+  keys.forEach((k,i)=>{
+    const[h,m]=prayerData.timings[k].split(':').map(Number);
+    const target=new Date(); target.setHours(h,m-5,0,0);
+    if(target>new Date()){
+      setTimeout(()=>new Notification(`🕌 ${names[i]}`,{body:`${prayerData.timings[k].substring(0,5)} — ${loc}`,icon:'https://images.unsplash.com/photo-1519817650390-64a93db51149?w=96&q=80'}),target-new Date());
+    }
+  });
+}
+
+// ── DİL ───────────────────────────────────────────────────────
+function setLang(l){
+  currentLang=l;
+  const rtl=['ar','fa'];
+  document.documentElement.lang=l;
+  document.body.dir=rtl.includes(l)?'rtl':'ltr';
+  document.querySelectorAll('.lang-btn').forEach(b=>b.classList.toggle('active',b.textContent.trim().toLowerCase()===l));
+  applyAllTranslations();
+  if(prayerData) renderPrayers(prayerData.timings);
+  renderDaily();
+  renderCities();
+  renderRamazanStatic();
+}
+function t(k){ return(T[currentLang]&&T[currentLang][k])||T.tr[k]||k; }
+
+function applyAllTranslations(){
+  // Tüm çevrilebilir elementler
+  const map={
+    siteTitle:'siteTitle',siteSubtitle:'siteSubtitle',
+    searchLabel:'searchLabel',searchBtn:'searchBtn',autoLabel:'autoLabel',
+    ayahTitle:'ayahTitle',hadithTitle:'hadithTitle',
+    countdownLabel:'countdownLabel',
+    notifyLabel:'notifyLabel',notifStrong:'notifStrong',notifDesc:'notifDesc',
+    notifBannerBtn:'notifActivate',installLabel:'installLabel',
+    tabHome:'tabHome',tabRamazan:'tabRamazan',
+    citiesTitle:'citiesTitle',ramazanSubtitle:'ramazanSubtitle',
+    iftarLabel:'iftarLabel',iftarCdLabel:'iftarCdLabel',
+    sahurLabel:'sahurLabel',ramDayLabel:'ramDayLabel',bayramLabel:'bayramLabel',
+    countryNote:'countryNote',
+    ramSearchLabel:'ramSearchLabel',ramAutoLabel:'ramAutoLabel',ramSearchBtn:'ramSearchBtn',
+    ramAyahTitle:'ramAyahTitle',ramAyahTr:'ramAyahTr',
+    ramDuaTitle:'ramDuaTitle',ramSahurDua:'ramSahurDua',ramIftarDua:'ramIftarDua',
+    footerRights:'footerRights',
+  };
+  Object.entries(map).forEach(([id,key])=>{
+    const el=document.getElementById(id);
+    if(el) el.textContent=t(key);
+  });
+  // Placeholder
+  const ci=document.getElementById('cityInput');
+  const ri=document.getElementById('ramCityInput');
+  const placeholder=currentLang==='ar'||currentLang==='fa'?'إسطنبول، لندن، دبي...':'İstanbul, London, Dubai...';
+  if(ci) ci.placeholder=placeholder;
+  if(ri) ri.placeholder=placeholder;
+  // noCityMsg
+  const nc=document.getElementById('noCityMsg');
+  if(nc&&!document.getElementById('iftarSection').style.display.includes('none')==false) nc.textContent=t('noCityMsg');
+}
+
+// ── TABS ──────────────────────────────────────────────────────
+function showTab(name){
+  document.querySelectorAll('.tab-content').forEach(el=>el.classList.remove('active'));
+  document.querySelectorAll('.tab-btn').forEach(el=>el.classList.remove('active'));
+  document.getElementById('tab-content-'+name).classList.add('active');
+  document.getElementById('tab-'+name).classList.add('active');
+}
+
+// ── UNSPLASH ──────────────────────────────────────────────────
+async function loadHeroImage(city){
+  if(UNSPLASH_KEY==='YOUR_UNSPLASH_KEY') return;
+  const q=city?`mosque ${city} night`:'mosque beautiful islamic architecture night';
+  try{
+    const r=await fetch(`https://api.unsplash.com/search/photos?query=${encodeURIComponent(q)}&orientation=landscape&per_page=5&client_id=${UNSPLASH_KEY}`);
+    const d=await r.json();
+    if(d.results&&d.results.length){
+      const idx=Math.floor(Math.random()*Math.min(5,d.results.length));
+      document.getElementById('heroImg').src=d.results[idx].urls.regular;
+    }
+  }catch(e){}
+}
+
+// ── KONUM / ARAMA ─────────────────────────────────────────────
+function autoLocate(){ geoLocate(false); }
+function autoLocateRam(){ geoLocate(true); }
+function geoLocate(isRam){
+  showStatus(t('loading')+'...','loading');
+  if(!navigator.geolocation){ showStatus(t('geoError'),'error'); return; }
+  navigator.geolocation.getCurrentPosition(async pos=>{
+    await fetchByCoords(pos.coords.latitude,pos.coords.longitude,isRam);
+  },()=>showStatus(t('geoError'),'error'));
+}
+async function fetchByCoords(lat,lon,isRam=false){
+  try{
+    const r=await fetch(`https://nominatim.openstreetmap.org/reverse?format=json&lat=${lat}&lon=${lon}`);
+    const d=await r.json();
+    const city=d.address.city||d.address.town||d.address.village||d.address.county||'';
+    const country=d.address.country||'';
+    const display=`${city}, ${country}`;
+    if(!isRam){ setLoc(display); await fetchPrayers(lat,lon); loadHeroImage(city); }
+    else { await fetchPrayersRam(lat,lon,display); }
+  }catch(e){ showStatus('Hata.','error'); }
+}
+
+function searchCity(){ doSearch(false); }
+function searchRamCity(){ doSearch(true); }
+async function doSearch(isRam){
+  const inputId=isRam?'ramCityInput':'cityInput';
+  const val=document.getElementById(inputId).value.trim();
+  if(!val) return;
+  closeSugg(isRam?'ramSuggestions':'suggestions');
+  if(!isRam) showStatus(t('loading')+'...','loading');
+  try{
+    const r=await fetch(`https://nominatim.openstreetmap.org/search?format=json&q=${encodeURIComponent(val)}&limit=5`);
+    const d=await r.json();
+    if(!d.length){ if(!isRam) showStatus(t('notFound'),'error'); return; }
+    const p=d[0];
+    const display=p.display_name.split(',').slice(0,2).join(', ');
+    if(!isRam){ setLoc(display); await fetchPrayers(p.lat,p.lon); loadHeroImage(val); }
+    else { await fetchPrayersRam(p.lat,p.lon,display); }
+  }catch(e){ if(!isRam) showStatus('Hata.','error'); }
+}
+
+// Autocomplete
+let st1=null,st2=null;
+document.getElementById('cityInput').addEventListener('input',function(){ clearTimeout(st1); if(this.value.trim().length<2){closeSugg('suggestions');return;} st1=setTimeout(()=>fetchSugg(this.value.trim(),'suggestions','cityInput',false),350); });
+document.getElementById('cityInput').addEventListener('keydown',function(e){ if(e.key==='Enter'){searchCity();closeSugg('suggestions');} });
+document.getElementById('ramCityInput').addEventListener('input',function(){ clearTimeout(st2); if(this.value.trim().length<2){closeSugg('ramSuggestions');return;} st2=setTimeout(()=>fetchSugg(this.value.trim(),'ramSuggestions','ramCityInput',true),350); });
+document.getElementById('ramCityInput').addEventListener('keydown',function(e){ if(e.key==='Enter'){searchRamCity();closeSugg('ramSuggestions');} });
+document.addEventListener('click',function(e){ if(!e.target.closest('.search-row')){closeSugg('suggestions');closeSugg('ramSuggestions');} });
+
+async function fetchSugg(q,boxId,inputId,isRam){
+  try{
+    const r=await fetch(`https://nominatim.openstreetmap.org/search?format=json&q=${encodeURIComponent(q)}&limit=6`);
+    const d=await r.json();
+    const box=document.getElementById(boxId);
+    if(!d.length){ closeSugg(boxId); return; }
+    box.innerHTML='';
+    d.forEach(p=>{
+      const div=document.createElement('div'); div.className='sugg-item';
+      div.textContent=p.display_name.split(',').slice(0,3).join(', ');
+      div.onclick=()=>{
+        document.getElementById(inputId).value=p.display_name.split(',')[0];
+        closeSugg(boxId);
+        const display=p.display_name.split(',').slice(0,2).join(', ');
+        if(!isRam){ setLoc(display); fetchPrayers(p.lat,p.lon); loadHeroImage(p.display_name.split(',')[0]); }
+        else { fetchPrayersRam(p.lat,p.lon,display); }
+      };
+      box.appendChild(div);
+    });
+    box.style.display='block';
+  }catch(e){ closeSugg(boxId); }
+}
+function closeSugg(id){ const el=document.getElementById(id); if(el) el.style.display='none'; }
+
+// ── NAMAZ VAKİTLERİ ───────────────────────────────────────────
+async function fetchPrayers(lat,lon){
+  showStatus(t('loading')+'...','loading');
+  try{
+    const now=new Date();
+    const url=`https://api.aladhan.com/v1/timings/${now.getDate()}-${now.getMonth()+1}-${now.getFullYear()}?latitude=${lat}&longitude=${lon}&method=3`;
+    const r=await fetch(url);
+    const d=await r.json();
+    if(d.code!==200){ showStatus('Vakit verisi alınamadı.','error'); return; }
+    prayerData=d.data;
+    hideStatus();
+    renderDate(d.data.date);
+    renderPrayers(d.data.timings);
+    startClock();
+    if(Notification.permission==='granted') schedulePrayerNotifs();
+  }catch(e){ showStatus('Bağlantı hatası.','error'); }
+}
+
+async function fetchPrayersRam(lat,lon,display){
+  try{
+    const now=new Date();
+    const url=`https://api.aladhan.com/v1/timings/${now.getDate()}-${now.getMonth()+1}-${now.getFullYear()}?latitude=${lat}&longitude=${lon}&method=3`;
+    const r=await fetch(url);
+    const d=await r.json();
+    if(d.code!==200) return;
+    const timings=d.data.timings;
+    // İftar = Akşam (Maghrib)
+    document.getElementById('iftarTime').textContent=timings.Maghrib.substring(0,5);
+    document.getElementById('sahurTime').textContent=timings.Fajr.substring(0,5);
+    document.getElementById('iftarSection').style.display='block';
+    document.getElementById('noCityMsg').textContent='📍 '+display;
+    startIftarCountdown(timings.Maghrib);
+  }catch(e){}
+}
+
+function renderPrayers(timings){
+  const keys=['Fajr','Sunrise','Dhuhr','Asr','Maghrib','Isha'];
+  const names=t('prayers');
+  const arNames=t('prayersAr');
+  const now=new Date();
+  const nowM=now.getHours()*60+now.getMinutes();
+  const mins=keys.map(k=>{ const[h,m]=timings[k].split(':').map(Number); return h*60+m; });
+  let nextIdx=mins.findIndex(m=>m>nowM); if(nextIdx===-1) nextIdx=0;
+
+  const grid=document.getElementById('prayersGrid'); grid.innerHTML='';
+  keys.forEach((k,i)=>{
+    const card=document.createElement('div');
+    card.className='prayer-card'+(i===nextIdx?' active':'');
+    const time=timings[k].substring(0,5);
+    card.innerHTML=`<div class="p-icon">${ICONS[i]}</div><div class="p-name">${names[i]}</div><div class="p-arabic">${arNames[i]}</div><div class="p-time">${time}</div>${i===nextIdx?`<div class="next-badge">${t('nextBadge')}</div>`:''}`;
+    grid.appendChild(card);
+  });
+  document.getElementById('prayerSection').style.display='block';
+
+  clearInterval(cdInt);
+  cdInt=setInterval(()=>updateCD(timings,keys,mins),1000);
+  updateCD(timings,keys,mins);
+}
+
+function updateCD(timings,keys,mins){
+  const now=new Date();
+  const nowM=now.getHours()*60+now.getMinutes();
+  const nowS=now.getSeconds();
+  const nextIdx=mins.findIndex(m=>m>nowM);
+  let diff;
+  if(nextIdx===-1){ diff=((24*60)-nowM+mins[0])*60-nowS; }
+  else { diff=(mins[nextIdx]-nowM)*60-nowS; }
+  const h=Math.floor(diff/3600),m=Math.floor((diff%3600)/60),s=diff%60;
+  document.getElementById('countdown').textContent=`${String(h).padStart(2,'0')}:${String(m).padStart(2,'0')}:${String(s).padStart(2,'0')}`;
+}
+
+// ── TARİH ────────────────────────────────────────────────────
+function renderDate(dateObj){
+  const g=dateObj.gregorian, hj=dateObj.hijri;
+  document.getElementById('dateDisplay').innerHTML=`📅 <span>${g.weekday.en}, ${g.day} ${g.month.en} ${g.year}</span>`;
+  document.getElementById('hijriDisplay').innerHTML=`🌙 <span>${hj.day} ${hj.month.en} ${hj.year} H</span>`;
+  document.getElementById('datetimeBar').style.display='flex';
+}
+function startClock(){
+  clearInterval(clockInt);
+  const tick=()=>{
+    const n=new Date();
+    document.getElementById('clockDisplay').textContent=[n.getHours(),n.getMinutes(),n.getSeconds()].map(x=>String(x).padStart(2,'0')).join(':');
+  };
+  tick(); clockInt=setInterval(tick,1000);
+}
+
+// ── RAMAZAN ──────────────────────────────────────────────────
+function renderRamazanStatic(){
+  document.getElementById('ramazanSubtitle').textContent=t('ramazanSubtitle');
+  document.getElementById('iftarLabel').textContent=t('iftarLabel');
+  document.getElementById('iftarCdLabel').textContent=t('iftarCdLabel');
+  document.getElementById('sahurLabel').textContent=t('sahurLabel');
+  document.getElementById('ramDayLabel').textContent=t('ramDayLabel');
+  document.getElementById('bayramLabel').textContent=t('bayramLabel');
+  document.getElementById('countryNote').textContent=t('countryNote');
+  document.getElementById('ramSearchLabel').textContent=t('ramSearchLabel');
+  document.getElementById('ramSearchBtn').textContent=t('ramSearchBtn');
+  document.getElementById('ramAutoLabel').textContent=t('ramAutoLabel');
+  document.getElementById('ramAyahTitle').textContent=t('ramAyahTitle');
+  document.getElementById('ramAyahTr').textContent=t('ramAyahTr');
+  document.getElementById('ramDuaTitle').textContent=t('ramDuaTitle');
+  document.getElementById('ramSahurDua').textContent=t('ramSahurDua');
+  document.getElementById('ramIftarDua').textContent=t('ramIftarDua');
+
+  const now=new Date();
+  // Ramazanın kaçı
+  if(now>=RAMAZAN_START && now<BAYRAM_START){
+    const dayNum=Math.floor((now-RAMAZAN_START)/86400000)+1;
+    const daysLeft=Math.ceil((BAYRAM_START-now)/86400000);
+    document.getElementById('ramDayVal').textContent=dayNum+t('ramDaySuffix');
+    document.getElementById('bayramVal').textContent=daysLeft+t('bayramSuffix');
+    document.getElementById('noCityMsg').textContent=t('noCityMsg');
+  } else if(now>=BAYRAM_START){
+    document.getElementById('ramDayVal').textContent='🎉';
+    document.getElementById('bayramVal').textContent='Bayram!';
+  } else {
+    // Ramazan henüz başlamadı
+    const daysToRam=Math.ceil((RAMAZAN_START-now)/86400000);
+    document.getElementById('ramDayVal').textContent=daysToRam+' Gün';
+    document.getElementById('bayramLabel').textContent='Ramazana Kalan';
+    document.getElementById('bayramVal').textContent='--';
+  }
+}
+
+function startIftarCountdown(maghribTime){
+  clearInterval(iftarInt);
+  const[th,tm]=maghribTime.split(':').map(Number);
+  const tick=()=>{
+    const now=new Date();
+    const targetToday=new Date(); targetToday.setHours(th,tm,0,0);
+    let diff=targetToday-now;
+    if(diff<0){ document.getElementById('iftarCd').textContent='İftar oldu 🌙'; clearInterval(iftarInt); return; }
+    const h=Math.floor(diff/3600000),m=Math.floor((diff%3600000)/60000),s=Math.floor((diff%60000)/1000);
+    document.getElementById('iftarCd').textContent=`${String(h).padStart(2,'0')}:${String(m).padStart(2,'0')}:${String(s).padStart(2,'0')}`;
+  };
+  tick(); iftarInt=setInterval(tick,1000);
+}
+
+// ── GÜNLÜK İÇERİK ────────────────────────────────────────────
+function renderDaily(){
+  const day=Math.floor((new Date()-new Date(new Date().getFullYear(),0,0))/86400000);
+  const ayah=AYAHS[day%AYAHS.length];
+  const hadith=HADITHS[day%HADITHS.length];
+  document.getElementById('ayahArabic').textContent=ayah.ar;
+  document.getElementById('ayahTranslation').textContent=ayah[currentLang]||ayah.tr;
+  document.getElementById('ayahSource').textContent='— '+ayah.src;
+  document.getElementById('hadithText').textContent=hadith[currentLang]||hadith.tr;
+  document.getElementById('hadithSource').textContent='— '+hadith.src;
+}
+
+// ── ŞEHİRLER ─────────────────────────────────────────────────
+function renderCities(){
+  const grid=document.getElementById('citiesGrid'); grid.innerHTML='';
+  CITIES.forEach(c=>{
+    const pill=document.createElement('div'); pill.className='city-pill';
+    pill.textContent=c.n;
+    pill.onclick=()=>{ document.getElementById('cityInput').value=c.n; setLoc(c.n); fetchPrayers(c.lat,c.lon); loadHeroImage(c.n); window.scrollTo({top:0,behavior:'smooth'}); showTab('home'); };
+    grid.appendChild(pill);
+  });
+}
+
+// ── HELPERS ───────────────────────────────────────────────────
+function setLoc(name){ document.getElementById('locationInfo').textContent='📍 '+name; }
+function showStatus(msg,type){ const el=document.getElementById('statusMsg'); el.textContent=msg; el.className='status-msg '+type; el.style.display='block'; document.getElementById('prayerSection').style.display='none'; }
+function hideStatus(){ document.getElementById('statusMsg').style.display='none'; }
+
+// ── INIT ──────────────────────────────────────────────────────
+(function init(){
+  const lang=detectLangFromDomain();
+  setLang(lang);
+  renderDaily();
+  renderCities();
+  renderRamazanStatic();
+  loadHeroImage();
+  // Otomatik konum algıla
+  if(navigator.geolocation){
+    navigator.geolocation.getCurrentPosition(
+      pos=>fetchByCoords(pos.coords.latitude,pos.coords.longitude,false),
+      ()=>{} // sessizce geç, kullanıcı arama yapabilir
+    );
+  }
+})();
+</script>
+</body>
+</html>
