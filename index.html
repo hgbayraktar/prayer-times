@@ -308,7 +308,7 @@ body[dir="rtl"]{font-family:'Noto Sans Arabic','Cormorant Garamond',serif;}
 // ╠═══════════════════════════════════════════════════════════╣
 // ║                                                           ║
 // ║  1) UNSPLASH KEY → Buraya kendi key'ini yapıştır:        ║
-const UNSPLASH_KEY = 'YOUR_UNSPLASH_KEY'; // <── BURAYA YAZ   ║
+const UNSPLASH_KEY = '_O3XSCFZYcaN0zPH0K1iGw5XD1XHSa56dOk2Jh9lgu0'; // <── BURAYA YAZ   ║
 // ║                                                           ║
 // ║  2) TÜRKÇE DOMAIN → Satın aldığın TR domain:             ║
 const TR_DOMAIN = 'namazvakitleri.com';   // <── BURAYA YAZ   ║
@@ -625,7 +625,7 @@ function showTab(name){
 
 // ── UNSPLASH ──────────────────────────────────────────────────
 async function loadHeroImage(city){
-  if(UNSPLASH_KEY==='YOUR_UNSPLASH_KEY') return;
+  if(UNSPLASH_KEY==='_O3XSCFZYcaN0zPH0K1iGw5XD1XHSa56dOk2Jh9lgu0') return;
   const q=city?`mosque ${city} night`:'mosque beautiful islamic architecture night';
   try{
     const r=await fetch(`https://api.unsplash.com/search/photos?query=${encodeURIComponent(q)}&orientation=landscape&per_page=5&client_id=${UNSPLASH_KEY}`);
