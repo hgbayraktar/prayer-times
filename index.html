@@ -1034,7 +1034,7 @@ function showTab(name){
   document.getElementById('tab-'+name).classList.add('active');
   if(name==='qibla') renderQibla();
   if(name==='tasbih') renderTasbihZikrs();
-  if(name==='calendar') renderCalendar();
+  if(name==='calendar'){ if(prayerData) renderSun(prayerData.timings); renderCalendar(); }
 }
 
 // ============================
