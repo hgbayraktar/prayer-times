@@ -148,6 +148,17 @@ body[dir="rtl"]{font-family:'Noto Sans Arabic','Cormorant Garamond',serif;}
 .cookie-accept{background:linear-gradient(135deg,var(--gold-dim),var(--gold));color:var(--navy);}
 .cookie-reject{background:transparent;border:1px solid var(--gold-dim);color:var(--white-dim);}
 .cookie-settings{background:transparent;border:1px solid rgba(200,168,75,.25);color:var(--gold-light);}
+
+/* ── Info Section ── */
+#infoSection{
+  position:relative;z-index:1;
+  max-width:1100px;margin:80px auto 40px auto;
+  padding:40px 20px;color:#ddd;line-height:1.8;font-size:16px;
+}
+#infoSection h2{color:#f5c76f;margin-top:40px;margin-bottom:20px;}
+#infoSection h2:first-child{margin-top:0;}
+#infoSection p{margin-bottom:12px;}
+#infoSection ul{margin-left:20px;margin-bottom:12px;}
 </style>
 <script type="application/ld+json">
 {
@@ -362,21 +373,21 @@ body[dir="rtl"]{font-family:'Noto Sans Arabic','Cormorant Garamond',serif;}
   </div>
 </div>
 
+<!-- ═══════════════════════════════════════
+     BİLGİ BÖLÜMÜ — renderInfoSection() tarafından doldurulur
+     Dil değiştiğinde otomatik güncellenir
+════════════════════════════════════════ -->
+<section id="infoSection"></section>
+
 <script>
 // ============================
 // SETTINGS
 // ============================
 const UNSPLASH_KEY = '_O3XSCFZYcaN0zPH0K1iGw5XD1XHSa56dOk2Jh9lgu0';
-
-// Domains (optional)
 const TR_DOMAIN = 'namazvakitleri.com';
 const EN_DOMAIN = 'prayertimes.com';
-
-// AdSense (fill after approval)
 const ADSENSE_PUB_ID = 'ca-pub-XXXXXXXXXXXXXXXX';
-const ADSENSE_ENABLED = false; // set true after approval + pub id set
-
-// Ramadan 2026 (kept from your code)
+const ADSENSE_ENABLED = false;
 const RAMAZAN_START = new Date('2026-02-19T00:00:00');
 const RAMAZAN_END   = new Date('2026-03-19T00:00:00');
 const BAYRAM_START  = new Date('2026-03-20T00:00:00');
@@ -408,8 +419,23 @@ const T = {
     prayers:['İmsak','Güneş','Öğle','İkindi','Akşam','Yatsı'],
     prayersAr:['الفجر','الشروق','الظهر','العصر','المغرب','العشاء'],
     cookieText:'We use cookies to improve experience and to display ads (Google AdSense). You can accept or reject. See our Privacy Policy.',
-    cookieAccept:'Accept',cookieReject:'Reject',cookieLearn:'Learn more',
-    linkAbout:'Hakkında',linkContact:'İletişim',linkPrivacy:'Gizlilik',linkTerms:'Şartlar'
+    cookieAccept:'Kabul Et',cookieReject:'Reddet',cookieLearn:'Daha Fazla',
+    linkAbout:'Hakkında',linkContact:'İletişim',linkPrivacy:'Gizlilik',linkTerms:'Şartlar',
+    // ── Bilgi bölümü ──
+    info:[
+      {h:'Namaz Vakitleri Nedir ve Nasıl Hesaplanır?'},
+      {p:'Namaz vakitleri, güneşin dünya üzerindeki konumuna göre belirlenen günlük ibadet zamanlarıdır. Sabah (Fajr), Öğle (Dhuhr), İkindi (Asr), Akşam (Maghrib) ve Yatsı (Isha) vakitleri astronomik hesaplamalara dayanır. Bu vakitler bulunduğunuz şehir, ülke ve coğrafi koordinatlara göre değişir.'},
+      {p:'EzanClock, dünya genelindeki şehirler için güvenilir namaz vakitlerini anlık olarak sunar. Hesaplamalar uluslararası kabul görmüş astronomik yöntemler kullanılarak yapılır ve düzenli olarak güncellenir.'},
+      {h:'EzanClock Nasıl Çalışır?'},
+      {p:'Sistemimiz, konum tabanlı veri sağlayan güvenilir API servisleri aracılığıyla günlük namaz vakitlerini çeker ve kullanıcılara sade, hızlı ve modern bir arayüzle sunar. Kullanıcılar şehir araması yapabilir, popüler şehirleri seçebilir ve günlük vakitleri kolayca görüntüleyebilir.'},
+      {p:'Ayrıca kullanıcılar isterlerse namaz vakti bildirimlerini aktif ederek vakitlerden önce hatırlatma alabilirler. Bu özellik, düzenli ibadet alışkanlığı kazanmak isteyenler için büyük kolaylık sağlar.'},
+      {h:'Dünya Genelinde Namaz Vakitleri'},
+      {p:'EzanClock, Avrupa, Orta Doğu, Amerika ve Asya dahil olmak üzere dünyanın her yerindeki şehirler için namaz vakitlerini destekler. İstanbul, London, Dubai, Berlin, Amsterdam, Riyadh gibi popüler şehirlerin yanı sıra küçük yerleşim yerleri için de veri sunar.'},
+      {p:'Amacımız, dünyanın her yerindeki Müslümanların doğru ve zamanında bilgiye kolayca ulaşmasını sağlamaktır.'},
+      {h:'Neden EzanClock?'},
+      {ul:['Gerçek zamanlı ve güncel namaz vakitleri','Modern ve hızlı arayüz','Dünya genelinde şehir desteği','Bildirim özelliği','Mobil ve masaüstü uyumlu tasarım']},
+      {p:'EzanClock, kullanıcı deneyimini ön planda tutarak tasarlanmıştır. Amacımız sade, güvenilir ve hızlı bir namaz vakti platformu sunmaktır.'}
+    ]
   },
   en:{
     siteTitle:'Prayer Times',siteSubtitle:'Anywhere in the world — Every day',
@@ -435,7 +461,21 @@ const T = {
     prayersAr:['الفجر','الشروق','الظهر','العصر','المغرب','العشاء'],
     cookieText:'We use cookies to improve experience and to display ads (Google AdSense). You can accept or reject. See our Privacy Policy.',
     cookieAccept:'Accept',cookieReject:'Reject',cookieLearn:'Learn more',
-    linkAbout:'About',linkContact:'Contact',linkPrivacy:'Privacy',linkTerms:'Terms'
+    linkAbout:'About',linkContact:'Contact',linkPrivacy:'Privacy',linkTerms:'Terms',
+    info:[
+      {h:'What Are Prayer Times and How Are They Calculated?'},
+      {p:'Prayer times are daily worship times determined by the position of the sun. Fajr (dawn), Dhuhr (noon), Asr (afternoon), Maghrib (sunset) and Isha (night) prayers are based on astronomical calculations. These times vary according to your city, country and geographic coordinates.'},
+      {p:'EzanClock provides reliable prayer times for cities around the world in real time. Calculations are made using internationally accepted astronomical methods and updated regularly.'},
+      {h:'How Does EzanClock Work?'},
+      {p:'Our system fetches daily prayer times through reliable location-based API services and presents them with a simple, fast and modern interface. Users can search for cities, select popular ones and easily view daily prayer times.'},
+      {p:'Users can also activate prayer time notifications to receive reminders before each prayer — a great feature for building a consistent prayer habit.'},
+      {h:'Prayer Times Worldwide'},
+      {p:'EzanClock supports prayer times for cities all over the world, including Europe, the Middle East, America and Asia. It covers popular cities like Istanbul, London, Dubai, Berlin, Amsterdam and Riyadh, as well as smaller settlements.'},
+      {p:'Our goal is to ensure that Muslims anywhere in the world can easily access accurate and timely information.'},
+      {h:'Why EzanClock?'},
+      {ul:['Real-time and up-to-date prayer times','Modern and fast interface','Worldwide city support','Notification feature','Mobile and desktop compatible design']},
+      {p:'EzanClock is designed with user experience at the forefront. Our goal is to provide a simple, reliable and fast prayer times platform.'}
+    ]
   },
   ar:{
     siteTitle:'أوقات الصلاة',siteSubtitle:'في كل مكان — كل يوم',
@@ -461,7 +501,21 @@ const T = {
     prayersAr:['الفجر','الشروق','الظهر','العصر','المغرب','العشاء'],
     cookieText:'نستخدم ملفات تعريف الارتباط لتحسين التجربة وعرض الإعلانات (Google AdSense). يمكنك القبول أو الرفض. راجع سياسة الخصوصية.',
     cookieAccept:'قبول',cookieReject:'رفض',cookieLearn:'مزيد من المعلومات',
-    linkAbout:'حول',linkContact:'اتصال',linkPrivacy:'الخصوصية',linkTerms:'الشروط'
+    linkAbout:'حول',linkContact:'اتصال',linkPrivacy:'الخصوصية',linkTerms:'الشروط',
+    info:[
+      {h:'ما هي أوقات الصلاة وكيف تُحسب؟'},
+      {p:'أوقات الصلاة هي أوقات العبادة اليومية التي تُحدد بناءً على موضع الشمس. تعتمد صلوات الفجر والظهر والعصر والمغرب والعشاء على الحسابات الفلكية، وتتغير حسب مدينتك وبلدك وإحداثياتك الجغرافية.'},
+      {p:'يوفر EzanClock أوقات الصلاة الموثوقة للمدن حول العالم في الوقت الفعلي، باستخدام أساليب فلكية مقبولة دوليًا.'},
+      {h:'كيف يعمل EzanClock؟'},
+      {p:'يجلب نظامنا أوقات الصلاة اليومية عبر خدمات API موثوقة تعتمد على الموقع، ويقدمها بواجهة بسيطة وسريعة وحديثة.'},
+      {p:'يمكن للمستخدمين أيضًا تفعيل إشعارات أوقات الصلاة لتلقي تذكيرات قبل كل صلاة.'},
+      {h:'أوقات الصلاة في جميع أنحاء العالم'},
+      {p:'يدعم EzanClock أوقات الصلاة للمدن في جميع أنحاء العالم، بما في ذلك أوروبا والشرق الأوسط وأمريكا وآسيا.'},
+      {p:'هدفنا ضمان وصول المسلمين في كل مكان إلى معلومات دقيقة وفي الوقت المناسب.'},
+      {h:'لماذا EzanClock؟'},
+      {ul:['أوقات صلاة فورية ومحدّثة','واجهة حديثة وسريعة','دعم المدن في جميع أنحاء العالم','ميزة الإشعارات','تصميم متوافق مع الجوال وسطح المكتب']},
+      {p:'تم تصميم EzanClock مع إعطاء الأولوية لتجربة المستخدم. هدفنا منصة بسيطة وموثوقة وسريعة لأوقات الصلاة.'}
+    ]
   },
   fa:{
     siteTitle:'اوقات نماز',siteSubtitle:'در هر کجای جهان — هر روز',
@@ -485,9 +539,23 @@ const T = {
     footerRights:'تمام حقوق محفوظ است',
     prayers:['صبح','طلوع','ظهر','عصر','مغرب','عشا'],
     prayersAr:['الفجر','الشروق','الظهر','العصر','المغرب','العشاء'],
-    cookieText:'ما از کوکی‌ها برای بهبود تجربه و نمایش تبلیغات (Google AdSense) استفاده می‌کنیم. می‌توانید بپذیرید یا رد کنید. سیاست حریم خصوصی را ببینید.',
+    cookieText:'ما از کوکی‌ها برای بهبود تجربه و نمایش تبلیغات (Google AdSense) استفاده می‌کنیم. می‌توانید بپذیرید یا رد کنید.',
     cookieAccept:'پذیرفتن',cookieReject:'رد کردن',cookieLearn:'اطلاعات بیشتر',
-    linkAbout:'درباره',linkContact:'تماس',linkPrivacy:'حریم خصوصی',linkTerms:'شرایط'
+    linkAbout:'درباره',linkContact:'تماس',linkPrivacy:'حریم خصوصی',linkTerms:'شرایط',
+    info:[
+      {h:'اوقات نماز چیست و چگونه محاسبه می‌شود؟'},
+      {p:'اوقات نماز، زمان‌های روزانه عبادت هستند که بر اساس موقعیت خورشید تعیین می‌شوند. نمازهای صبح، ظهر، عصر، مغرب و عشا بر اساس محاسبات نجومی هستند و بسته به شهر، کشور و مختصات جغرافیایی شما متفاوتند.'},
+      {p:'EzanClock اوقات نماز معتبر را برای شهرهای سراسر جهان به صورت لحظه‌ای ارائه می‌دهد.'},
+      {h:'EzanClock چگونه کار می‌کند؟'},
+      {p:'سیستم ما اوقات نماز روزانه را از طریق سرویس‌های API معتبر دریافت کرده و با رابطی ساده، سریع و مدرن به کاربران ارائه می‌دهد.'},
+      {p:'کاربران همچنین می‌توانند اعلان‌های اوقات نماز را فعال کنند تا قبل از هر نماز یادآوری دریافت کنند.'},
+      {h:'اوقات نماز در سراسر جهان'},
+      {p:'EzanClock از اوقات نماز برای شهرهای سراسر جهان، از جمله اروپا، خاورمیانه، آمریکا و آسیا پشتیبانی می‌کند.'},
+      {p:'هدف ما این است که مسلمانان در هر کجای جهان به اطلاعات دقیق و به‌موقع دسترسی آسان داشته باشند.'},
+      {h:'چرا EzanClock؟'},
+      {ul:['اوقات نماز لحظه‌ای و به‌روز','رابط کاربری مدرن و سریع','پشتیبانی از شهرهای سراسر جهان','قابلیت اعلان','طراحی سازگار با موبایل و دسکتاپ']},
+      {p:'EzanClock با اولویت‌بندی تجربه کاربری طراحی شده است. هدف ما یک پلتفرم ساده، قابل اعتماد و سریع برای اوقات نماز است.'}
+    ]
   },
   fr:{
     siteTitle:'Horaires de Prière',siteSubtitle:'Partout dans le monde — Chaque jour',
@@ -513,7 +581,21 @@ const T = {
     prayersAr:['الفجر','الشروق','الظهر','العصر','المغرب','العشاء'],
     cookieText:'Nous utilisons des cookies pour améliorer l\'expérience et afficher des publicités (Google AdSense). Vous pouvez accepter ou refuser. Voir la politique de confidentialité.',
     cookieAccept:'Accepter',cookieReject:'Refuser',cookieLearn:'En savoir plus',
-    linkAbout:'À propos',linkContact:'Contact',linkPrivacy:'Confidentialité',linkTerms:'Conditions'
+    linkAbout:'À propos',linkContact:'Contact',linkPrivacy:'Confidentialité',linkTerms:'Conditions',
+    info:[
+      {h:'Que sont les horaires de prière et comment sont-ils calculés ?'},
+      {p:"Les horaires de prière sont des moments d'adoration quotidiens déterminés par la position du soleil. Les prières Fajr, Dhuhr, Asr, Maghrib et Isha sont basées sur des calculs astronomiques et varient selon votre ville, pays et coordonnées géographiques."},
+      {p:'EzanClock fournit des horaires de prière fiables en temps réel, calculés selon des méthodes astronomiques reconnues internationalement.'},
+      {h:'Comment fonctionne EzanClock ?'},
+      {p:"Notre système récupère les horaires de prière quotidiens via des API fiables et les présente avec une interface simple, rapide et moderne."},
+      {p:"Les utilisateurs peuvent activer les notifications pour recevoir des rappels avant chaque prière."},
+      {h:'Horaires de prière dans le monde entier'},
+      {p:"EzanClock supporte les horaires pour les villes du monde entier : Europe, Moyen-Orient, Amérique et Asie."},
+      {p:"Notre objectif est de permettre aux musulmans du monde entier d'accéder facilement à des informations précises."},
+      {h:'Pourquoi EzanClock ?'},
+      {ul:['Horaires en temps réel','Interface moderne et rapide','Support mondial des villes','Fonction de notification','Compatibilité mobile et bureau']},
+      {p:"EzanClock est conçu en mettant l'expérience utilisateur au premier plan."}
+    ]
   },
   de:{
     siteTitle:'Gebetszeiten',siteSubtitle:'Überall auf der Welt — Jeden Tag',
@@ -537,13 +619,29 @@ const T = {
     footerRights:'Alle Rechte vorbehalten',
     prayers:['Fajr','Sonnenaufgang','Dhuhr','Asr','Maghrib','Isha'],
     prayersAr:['الفجر','الشروق','الظهر','العصر','المغرب','العشاء'],
-    cookieText:'Wir verwenden Cookies, um die Nutzung zu verbessern und Anzeigen (Google AdSense) zu zeigen. Sie können akzeptieren oder ablehnen. Siehe Datenschutz.',
+    cookieText:'Wir verwenden Cookies, um die Nutzung zu verbessern und Anzeigen (Google AdSense) zu zeigen. Sie können akzeptieren oder ablehnen.',
     cookieAccept:'Akzeptieren',cookieReject:'Ablehnen',cookieLearn:'Mehr erfahren',
-    linkAbout:'Über',linkContact:'Kontakt',linkPrivacy:'Datenschutz',linkTerms:'Bedingungen'
+    linkAbout:'Über',linkContact:'Kontakt',linkPrivacy:'Datenschutz',linkTerms:'Bedingungen',
+    info:[
+      {h:'Was sind Gebetszeiten und wie werden sie berechnet?'},
+      {p:'Gebetszeiten sind tägliche Gottesdienstzeiten, die anhand der Sonnenposition bestimmt werden. Fajr, Dhuhr, Asr, Maghrib und Isha basieren auf astronomischen Berechnungen und variieren je nach Stadt, Land und Koordinaten.'},
+      {p:'EzanClock liefert zuverlässige Gebetszeiten für Städte weltweit in Echtzeit.'},
+      {h:'Wie funktioniert EzanClock?'},
+      {p:'Unser System ruft tägliche Gebetszeiten über standortbasierte API-Dienste ab und präsentiert sie mit einer einfachen, schnellen und modernen Oberfläche.'},
+      {p:'Nutzer können auch Gebetszeit-Benachrichtigungen aktivieren, um vor jedem Gebet Erinnerungen zu erhalten.'},
+      {h:'Gebetszeiten weltweit'},
+      {p:'EzanClock unterstützt Gebetszeiten für Städte weltweit: Europa, Nahost, Amerika und Asien.'},
+      {p:'Unser Ziel ist es, Muslimen überall einfachen Zugang zu genauen und zeitnahen Informationen zu ermöglichen.'},
+      {h:'Warum EzanClock?'},
+      {ul:['Echtzeit-Gebetszeiten','Moderne und schnelle Oberfläche','Weltweite Stadtunterstützung','Benachrichtigungsfunktion','Mobil- und Desktop-kompatibles Design']},
+      {p:'EzanClock wurde mit Fokus auf Benutzererfahrung entwickelt. Einfach, zuverlässig und schnell.'}
+    ]
   }
 };
 
-// Policy content (minimal but AdSense-friendly). You can expand later.
+// ============================
+// POLICY
+// ============================
 const POLICY = {
   about: {
     tr: `<h2>Hakkında</h2><p>Bu site, konuma göre günlük namaz vakitlerini gösterir.</p><p>Hedef: basit, hızlı ve anlaşılır bir deneyim.</p>`,
@@ -565,50 +663,22 @@ const POLICY = {
     tr: `<h2>Kullanım Şartları</h2><p>Bu site bilgi amaçlıdır. Vakitler hesaplama yöntemi ve konum doğruluğuna göre değişebilir.</p><p>Siteyi kullanarak bu şartları kabul edersiniz.</p>`,
     en: `<h2>Terms of Use</h2><p>This site is for informational purposes. Times may vary depending on calculation method and location accuracy.</p><p>By using this site, you agree to these terms.</p>`,
     ar: `<h2>الشروط</h2><p>هذا الموقع لأغراض معلوماتية. قد تختلف الأوقات حسب الطريقة ودقة الموقع.</p><p>باستخدامك للموقع فإنك توافق على الشروط.</p>`,
-    fa: `<h2>شرایط استفاده</h2><p>این سایت صرفاً جهت اطلاع‌رسانی است. زمان‌ها ممکن است بسته به روش محاسبه و دقت موقعیت متفاوت باشد.</p><p>با استفاده از سایت، این شرایط را می‌پذیرید.</p>`,
-    fr: `<h2>Conditions d'utilisation</h2><p>Ce site est informatif. Les horaires peuvent varier selon la méthode et la précision de localisation.</p><p>En utilisant ce site, vous acceptez ces conditions.</p>`,
-    de: `<h2>Nutzungsbedingungen</h2><p>Diese Website dient nur zu Informationszwecken. Zeiten können je nach Methode und Standortgenauigkeit variieren.</p><p>Durch die Nutzung stimmen Sie zu.</p>`
+    fa: `<h2>شرایط استفاده</h2><p>این سایت صرفاً جهت اطلاع‌رسانی است. زمان‌ها ممکن است متفاوت باشد.</p><p>با استفاده از سایت، این شرایط را می‌پذیرید.</p>`,
+    fr: `<h2>Conditions d'utilisation</h2><p>Ce site est informatif. Les horaires peuvent varier.</p><p>En utilisant ce site, vous acceptez ces conditions.</p>`,
+    de: `<h2>Nutzungsbedingungen</h2><p>Diese Website dient nur zu Informationszwecken. Zeiten können variieren.</p><p>Durch die Nutzung stimmen Sie zu.</p>`
   },
   privacy: {
-    tr: `<h2>Gizlilik Politikası</h2>
-      <p>Bu site kişisel veri toplamayı amaçlamaz.</p>
-      <h2>Çerezler ve Reklam</h2>
-      <p>Google AdSense gibi üçüncü taraf sağlayıcılar reklam göstermek için çerezler kullanabilir.</p>
-      <p>Kişiselleştirilmiş reklam ayarlarını Google üzerinden yönetebilirsiniz: <a href="https://www.google.com/settings/ads" target="_blank" rel="noreferrer">Google Ad Settings</a></p>
-      <h2>İletişim</h2>
-      <p>Sorular: <a href="mailto:info@ezanclock.com">info@ezanclock.com</a></p>`,
-    en: `<h2>Privacy Policy</h2>
-      <p>This website does not aim to collect personal data.</p>
-      <h2>Cookies & Advertising</h2>
-      <p>Third-party vendors such as Google AdSense may use cookies to serve and measure ads.</p>
-      <p>You can manage ad personalization in Google settings: <a href="https://www.google.com/settings/ads" target="_blank" rel="noreferrer">Google Ad Settings</a></p>
-      <h2>Contact</h2>
-      <p>Questions: <a href="mailto:info@ezanclock.com">info@ezanclock.com</a></p>`,
-    ar: `<h2>سياسة الخصوصية</h2>
-      <p>لا يهدف هذا الموقع إلى جمع بيانات شخصية.</p>
-      <h2>ملفات تعريف الارتباط والإعلانات</h2>
-      <p>قد يستخدم مزودون مثل Google AdSense ملفات تعريف الارتباط لعرض الإعلانات وقياسها.</p>
-      <p>يمكنك إدارة تخصيص الإعلانات عبر إعدادات Google: <a href="https://www.google.com/settings/ads" target="_blank" rel="noreferrer">إعدادات إعلانات Google</a></p>`,
-    fa: `<h2>سیاست حریم خصوصی</h2>
-      <p>این وب‌سایت قصد جمع‌آوری اطلاعات شخصی را ندارد.</p>
-      <h2>کوکی‌ها و تبلیغات</h2>
-      <p>سرویس‌دهندگان شخص ثالث مانند Google AdSense ممکن است برای نمایش و اندازه‌گیری تبلیغات از کوکی استفاده کنند.</p>
-      <p>می‌توانید تنظیمات تبلیغات را در Google مدیریت کنید: <a href="https://www.google.com/settings/ads" target="_blank" rel="noreferrer">تنظیمات تبلیغات Google</a></p>`,
-    fr: `<h2>Politique de confidentialité</h2>
-      <p>Ce site ne vise pas à collecter des données personnelles.</p>
-      <h2>Cookies & Publicité</h2>
-      <p>Des fournisseurs tiers comme Google AdSense peuvent utiliser des cookies.</p>
-      <p>Gérez la personnalisation via Google: <a href="https://www.google.com/settings/ads" target="_blank" rel="noreferrer">Paramètres des annonces Google</a></p>`,
-    de: `<h2>Datenschutzerklärung</h2>
-      <p>Diese Website sammelt keine personenbezogenen Daten zu diesem Zweck.</p>
-      <h2>Cookies & Werbung</h2>
-      <p>Drittanbieter wie Google AdSense können Cookies verwenden, um Anzeigen bereitzustellen und zu messen.</p>
-      <p>Personalisierung in Google verwalten: <a href="https://www.google.com/settings/ads" target="_blank" rel="noreferrer">Google Anzeigen-Einstellungen</a></p>`
+    tr: `<h2>Gizlilik Politikası</h2><p>Bu site kişisel veri toplamayı amaçlamaz.</p><h2>Çerezler ve Reklam</h2><p>Google AdSense gibi üçüncü taraf sağlayıcılar reklam göstermek için çerezler kullanabilir.</p><p>Kişiselleştirilmiş reklam ayarlarını Google üzerinden yönetebilirsiniz: <a href="https://www.google.com/settings/ads" target="_blank" rel="noreferrer">Google Ad Settings</a></p><h2>İletişim</h2><p>Sorular: <a href="mailto:info@ezanclock.com">info@ezanclock.com</a></p>`,
+    en: `<h2>Privacy Policy</h2><p>This website does not aim to collect personal data.</p><h2>Cookies & Advertising</h2><p>Third-party vendors such as Google AdSense may use cookies to serve and measure ads.</p><p>You can manage ad personalization in Google settings: <a href="https://www.google.com/settings/ads" target="_blank" rel="noreferrer">Google Ad Settings</a></p><h2>Contact</h2><p>Questions: <a href="mailto:info@ezanclock.com">info@ezanclock.com</a></p>`,
+    ar: `<h2>سياسة الخصوصية</h2><p>لا يهدف هذا الموقع إلى جمع بيانات شخصية.</p><h2>ملفات تعريف الارتباط والإعلانات</h2><p>قد يستخدم مزودون مثل Google AdSense ملفات تعريف الارتباط.</p><p>يمكنك إدارة تخصيص الإعلانات: <a href="https://www.google.com/settings/ads" target="_blank" rel="noreferrer">إعدادات إعلانات Google</a></p>`,
+    fa: `<h2>سیاست حریم خصوصی</h2><p>این وب‌سایت قصد جمع‌آوری اطلاعات شخصی را ندارد.</p><p>می‌توانید تنظیمات تبلیغات را در Google مدیریت کنید: <a href="https://www.google.com/settings/ads" target="_blank" rel="noreferrer">تنظیمات تبلیغات Google</a></p>`,
+    fr: `<h2>Politique de confidentialité</h2><p>Ce site ne vise pas à collecter des données personnelles.</p><p>Gérez la personnalisation via Google: <a href="https://www.google.com/settings/ads" target="_blank" rel="noreferrer">Paramètres des annonces Google</a></p>`,
+    de: `<h2>Datenschutzerklärung</h2><p>Diese Website sammelt keine personenbezogenen Daten.</p><p>Personalisierung in Google verwalten: <a href="https://www.google.com/settings/ads" target="_blank" rel="noreferrer">Google Anzeigen-Einstellungen</a></p>`
   }
 };
 
 // ============================
-// ICONS / CONTENT (kept from your code)
+// ICONS
 // ============================
 const ICONS=[
   `<svg viewBox="0 0 32 32" fill="none"><path d="M20 6C14.477 6 10 10.477 10 16s4.477 10 10 10c1.07 0 2.1-.168 3.07-.48C19.14 27.18 15.19 28 11 28 5.477 28 1 23.523 1 18S5.477 8 11 8c.34 0 .677.017 1.01.05A9.97 9.97 0 0020 6z" fill="#c8a84b"/><circle cx="23" cy="8" r="1.5" fill="#c8a84b"/><circle cx="27" cy="5" r="1" fill="#c8a84b"/></svg>`,
@@ -619,16 +689,15 @@ const ICONS=[
   `<svg viewBox="0 0 32 32" fill="none"><path d="M22 8C17.582 8 14 11.582 14 16s3.582 8 8 8c.748 0 1.47-.1 2.155-.287C21.336 25.22 18.28 26 15 26c-5.523 0-10-4.477-10-10S9.477 6 15 6c.34 0 .677.017 1.01.05A7.977 7.977 0 0022 8z" fill="#c8a84b"/><circle cx="26" cy="6" r="1.2" fill="#e8cb72"/><circle cx="29" cy="10" r=".8" fill="#e8cb72"/><circle cx="24" cy="13" r=".8" fill="#e8cb72"/></svg>`
 ];
 
-// Shortened arrays to keep file manageable here; keep yours if you want full set.
 const AYAHS=[
-  {ar:'وَمَن يَتَوَكَّلْ عَلَى اللَّهِ فَهُوَ حَسْبُهُ',tr:'Kim Allah\'a tevekkül ederse O ona yeter.',en:'Whoever relies upon Allah — He is sufficient.',fr:'Quiconque se repose sur Allah, Il lui suffira.',de:'Wer sich auf Allah verlässt, dem genügt Er.',fa:'هر کس بر خدا توکل کند، خدا او را کافی است.',src:'Talak 65:3'},
-  {ar:'إِنَّ مَعَ الْعُسْرِ يُسْرًا',tr:'Şüphesiz güçlükle birlikte kolaylık vardır.',en:'Indeed, with hardship will be ease.',fr:'Certes, avec la difficulté vient la facilité.',de:'Wahrlich, mit Schwierigkeit kommt Erleichterung.',fa:'همانا با دشواری آسانی است.',src:'İnşirah 94:6'},
-  {ar:'فَاذْكُرُونِي أَذْكُرْكُمْ',tr:'Siz beni zikredin ki ben de sizi zikredeyim.',en:'Remember Me and I will remember you.',fr:'Souvenez-vous de Moi, Je Me souviendrai.',de:'Gedenkt Meiner, Ich werde eurer gedenken.',fa:'مرا یاد کنید تا من شما را یاد کنم.',src:'Bakara 2:152'},
+  {ar:'وَمَن يَتَوَكَّلْ عَلَى اللَّهِ فَهُوَ حَسْبُهُ',tr:'Kim Allah\'a tevekkül ederse O ona yeter.',en:'Whoever relies upon Allah — He is sufficient.',fr:'Quiconque se repose sur Allah, Il lui suffira.',de:'Wer sich auf Allah verlässt, dem genügt Er.',fa:'هر کس بر خدا توکل کند، خدا او را کافی است.',ar_tr:'من يتوكل على الله فهو حسبه',src:'Talak 65:3'},
+  {ar:'إِنَّ مَعَ الْعُسْرِ يُسْرًا',tr:'Şüphesiz güçlükle birlikte kolaylık vardır.',en:'Indeed, with hardship will be ease.',fr:'Certes, avec la difficulté vient la facilité.',de:'Wahrlich, mit Schwierigkeit kommt Erleichterung.',fa:'همانا با دشواری آسانی است.',ar_tr:'مع العسر يسر',src:'İnşirah 94:6'},
+  {ar:'فَاذْكُرُونِي أَذْكُرْكُمْ',tr:'Siz beni zikredin ki ben de sizi zikredeyim.',en:'Remember Me and I will remember you.',fr:'Souvenez-vous de Moi, Je Me souviendrai.',de:'Gedenkt Meiner, Ich werde eurer gedenken.',fa:'مرا یاد کنید تا من شما را یاد کنم.',ar_tr:'اذكروني أذكركم',src:'Bakara 2:152'},
 ];
 const HADITHS=[
-  {tr:'Ameller niyetlere göredir. Herkes niyetinin karşılığını alır.',en:'Actions are judged by intentions. Everyone gets what they intended.',fr:'Les actes sont jugés selon les intentions.',de:'Taten werden nach Absichten beurteilt.',fa:'اعمال بر اساس نیت‌هاست.',src:'Buhârî & Müslim'},
-  {tr:'Güler yüzle kardeşine bakmak sadakadır.',en:'Your smiling in your brother\'s face is a charity.',fr:'Ton sourire à ton frère est une aumône.',de:'Dein Lächeln deinem Bruder ist eine Almosen.',fa:'تبسم تو به روی برادرت صدقه است.',src:'Tirmizî'},
-  {tr:'İlim öğrenmek her Müslümana farzdır.',en:'Seeking knowledge is obligatory upon every Muslim.',fr:'La recherche du savoir est une obligation pour tout musulman.',de:'Das Suchen nach Wissen ist Pflicht für jeden Muslim.',fa:'کسب علم بر هر مسلمانی واجب است.',src:'İbn Mâce'},
+  {tr:'Ameller niyetlere göredir. Herkes niyetinin karşılığını alır.',en:'Actions are judged by intentions. Everyone gets what they intended.',fr:'Les actes sont jugés selon les intentions.',de:'Taten werden nach Absichten beurteilt.',fa:'اعمال بر اساس نیت‌هاست.',ar:'الأعمال بالنيات',src:'Buhârî & Müslim'},
+  {tr:'Güler yüzle kardeşine bakmak sadakadır.',en:'Your smiling in your brother\'s face is a charity.',fr:'Ton sourire à ton frère est une aumône.',de:'Dein Lächeln deinem Bruder ist eine Almosen.',fa:'تبسم تو به روی برادرت صدقه است.',ar:'تبسمك في وجه أخيك صدقة',src:'Tirmizî'},
+  {tr:'İlim öğrenmek her Müslümana farzdır.',en:'Seeking knowledge is obligatory upon every Muslim.',fr:'La recherche du savoir est une obligation pour tout musulman.',de:'Das Suchen nach Wissen ist Pflicht für jeden Muslim.',fa:'کسب علم بر هر مسلمانی واجب است.',ar:'طلب العلم فريضة على كل مسلم',src:'İbn Mâce'},
 ];
 
 const CITIES=[
@@ -648,19 +717,16 @@ let clockInt=null;
 let cdInt=null;
 let iftarInt=null;
 let deferredPrompt=null;
-
 let cityTimeZone=null;
 let cityLat=null;
 let cityLon=null;
 
 // ============================
-// DOMAIN -> DEFAULT LANGUAGE (kept behavior)
+// DOMAIN -> DEFAULT LANGUAGE
 // ============================
 function detectLangFromDomain(){
   const host = window.location.hostname.toLowerCase();
-  if(host.includes(EN_DOMAIN.toLowerCase()) || host.includes('prayertimes') || host.includes('prayer-times')){
-    return 'en';
-  }
+  if(host.includes(EN_DOMAIN.toLowerCase()) || host.includes('prayertimes') || host.includes('prayer-times')) return 'en';
   return 'tr';
 }
 
@@ -672,15 +738,11 @@ window.addEventListener('beforeinstallprompt',e=>{
   document.getElementById('installBtn').style.display='block';
 });
 function installPWA(){
-  if(deferredPrompt){
-    deferredPrompt.prompt();
-    deferredPrompt=null;
-    document.getElementById('installBtn').style.display='none';
-  }
+  if(deferredPrompt){ deferredPrompt.prompt(); deferredPrompt=null; document.getElementById('installBtn').style.display='none'; }
 }
 
 // ============================
-// Cookie Consent (simple banner)
+// Cookie Consent
 // ============================
 const CONSENT_KEY='pt_cookie_consent_v1';
 
@@ -690,78 +752,46 @@ function setCookieTexts(){
     (tt.cookieText||T.en.cookieText).replace('Privacy Policy', `<a onclick="openPolicy('privacy')">${tt.linkPrivacy||'Privacy'}</a>`);
   document.getElementById('cookieAcceptBtn').textContent = tt.cookieAccept || 'Accept';
   document.getElementById('cookieRejectBtn').textContent = tt.cookieReject || 'Reject';
-  document.getElementById('cookieLearnBtn').textContent = tt.cookieLearn || 'Learn more';
+  document.getElementById('cookieLearnBtn').textContent  = tt.cookieLearn  || 'Learn more';
 }
 
 function showCookieBannerIfNeeded(){
   const v=localStorage.getItem(CONSENT_KEY);
-  if(!v){
-    setCookieTexts();
-    document.getElementById('cookieBanner').style.display='block';
-  }else{
-    document.getElementById('cookieBanner').style.display='none';
-    if(v==='accepted') maybeLoadAdSense();
-  }
+  if(!v){ setCookieTexts(); document.getElementById('cookieBanner').style.display='block'; }
+  else  { document.getElementById('cookieBanner').style.display='none'; if(v==='accepted') maybeLoadAdSense(); }
 }
-
-function acceptCookies(){
-  localStorage.setItem(CONSENT_KEY,'accepted');
-  document.getElementById('cookieBanner').style.display='none';
-  maybeLoadAdSense();
-}
-
-function rejectCookies(){
-  localStorage.setItem(CONSENT_KEY,'rejected');
-  document.getElementById('cookieBanner').style.display='none';
-}
-
+function acceptCookies(){ localStorage.setItem(CONSENT_KEY,'accepted'); document.getElementById('cookieBanner').style.display='none'; maybeLoadAdSense(); }
+function rejectCookies(){ localStorage.setItem(CONSENT_KEY,'rejected'); document.getElementById('cookieBanner').style.display='none'; }
 function maybeLoadAdSense(){
-  if(!ADSENSE_ENABLED) return;
-  if(!ADSENSE_PUB_ID || ADSENSE_PUB_ID.includes('XXXX')) return;
-
+  if(!ADSENSE_ENABLED||!ADSENSE_PUB_ID||ADSENSE_PUB_ID.includes('XXXX')) return;
   if(document.getElementById('adsenseScript')) return;
-
   const s=document.createElement('script');
-  s.id='adsenseScript';
-  s.async=true;
-  s.crossOrigin='anonymous';
+  s.id='adsenseScript'; s.async=true; s.crossOrigin='anonymous';
   s.src=`https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=${encodeURIComponent(ADSENSE_PUB_ID)}`;
   document.head.appendChild(s);
-
-  // If you later replace placeholders with <ins class="adsbygoogle"> blocks, you can push here.
 }
 
 // ============================
-// Policy Modal (About/Contact/Privacy/Terms)
+// Policy Modal
 // ============================
 function openPolicy(key){
   const titleMap={about:'About',contact:'Contact',privacy:'Privacy',terms:'Terms'};
   const tt=T[currentLang]||T.en;
-  const title =
-    key==='about' ? (tt.linkAbout||titleMap[key]) :
-    key==='contact' ? (tt.linkContact||titleMap[key]) :
-    key==='privacy' ? (tt.linkPrivacy||titleMap[key]) :
-    (tt.linkTerms||titleMap[key]);
-
+  const title = key==='about'?(tt.linkAbout||titleMap[key]):key==='contact'?(tt.linkContact||titleMap[key]):key==='privacy'?(tt.linkPrivacy||titleMap[key]):(tt.linkTerms||titleMap[key]);
   document.getElementById('policyTitle').textContent=title;
-  const body = (POLICY[key] && (POLICY[key][currentLang] || POLICY[key].en)) || '';
+  const body=(POLICY[key]&&(POLICY[key][currentLang]||POLICY[key].en))||'';
   document.getElementById('policyBody').innerHTML=body;
-
   const b=document.getElementById('policyBackdrop');
-  b.style.display='flex';
-  b.setAttribute('aria-hidden','false');
+  b.style.display='flex'; b.setAttribute('aria-hidden','false');
 }
 function closePolicy(){
   const b=document.getElementById('policyBackdrop');
-  b.style.display='none';
-  b.setAttribute('aria-hidden','true');
+  b.style.display='none'; b.setAttribute('aria-hidden','true');
 }
-document.getElementById('policyBackdrop').addEventListener('click', (e)=>{
-  if(e.target.id==='policyBackdrop') closePolicy();
-});
+document.getElementById('policyBackdrop').addEventListener('click',(e)=>{ if(e.target.id==='policyBackdrop') closePolicy(); });
 
 // ============================
-// Push Notifications (kept minimal; scheduling uses device time)
+// Notifications
 // ============================
 async function requestNotification(){
   if(!('Notification' in window)){ alert('Notifications not supported.'); return; }
@@ -776,64 +806,79 @@ async function requestNotification(){
 // ============================
 // Language
 // ============================
-function t(k){ return (T[currentLang] && T[currentLang][k]) || (T.en && T.en[k]) || k; }
+function t(k){ return (T[currentLang]&&T[currentLang][k])||(T.en&&T.en[k])||k; }
 
 function setLang(l){
   currentLang=l;
   const rtl=['ar','fa'];
   document.documentElement.lang=l;
   document.body.dir=rtl.includes(l)?'rtl':'ltr';
-
   document.querySelectorAll('.lang-btn').forEach(b=>{
     b.classList.toggle('active', b.textContent.trim().toLowerCase()===l);
   });
-
   applyAllTranslations();
   renderDaily();
   renderCities();
+  renderInfoSection();          // ← bilgi bölümünü güncelle
   showCookieBannerIfNeeded();
-
-  // If we already have data, re-render with localized labels + timezone clock
-  if(prayerData){
-    renderPrayers(prayerData.timings);
-    renderDate(prayerData.date);
-    startClock();
-  }
+  if(prayerData){ renderPrayers(prayerData.timings); renderDate(prayerData.date); startClock(); }
 }
 
 function applyAllTranslations(){
+  // Element ID → çeviri anahtarı eşlemesi
+  // NOT: notifBannerBtn için aşağıda ayrı ele alınıyor (düzeltme)
   const map={
-    siteTitle:'siteTitle',siteSubtitle:'siteSubtitle',
-    searchLabel:'searchLabel',searchBtn:'searchBtn',autoLabel:'autoLabel',
-    ayahTitle:'ayahTitle',hadithTitle:'hadithTitle',
+    siteTitle:'siteTitle', siteSubtitle:'siteSubtitle',
+    searchLabel:'searchLabel', autoLabel:'autoLabel',
+    ayahTitle:'ayahTitle', hadithTitle:'hadithTitle',
     countdownLabel:'countdownLabel',
-    notifyLabel:'notifyLabel',notifStrong:'notifStrong',notifDesc:'notifDesc',
-    notifBannerBtn:'notifActivate',installLabel:'installLabel',
-    tabHome:'tabHome',tabRamazan:'tabRamazan',
-    citiesTitle:'citiesTitle',ramazanSubtitle:'ramazanSubtitle',
-    iftarLabel:'iftarLabel',iftarCdLabel:'iftarCdLabel',
+    notifyLabel:'notifyLabel', notifStrong:'notifStrong', notifDesc:'notifDesc',
+    installLabel:'installLabel',
+    tabHome:'tabHome', tabRamazan:'tabRamazan',
+    citiesTitle:'citiesTitle', ramazanSubtitle:'ramazanSubtitle',
+    iftarLabel:'iftarLabel', iftarCdLabel:'iftarCdLabel',
     sahurLabel:'sahurLabel',
-    ramSearchLabel:'ramSearchLabel',ramAutoLabel:'ramAutoLabel',ramSearchBtn:'ramSearchBtn',
-    ramAyahTitle:'ramAyahTitle',ramAyahTr:'ramAyahTr',
-    ramDuaTitle:'ramDuaTitle',ramSahurDua:'ramSahurDua',ramIftarDua:'ramIftarDua',
+    ramAyahTitle:'ramAyahTitle', ramAyahTr:'ramAyahTr',
+    ramDuaTitle:'ramDuaTitle', ramSahurDua:'ramSahurDua', ramIftarDua:'ramIftarDua',
     footerRights:'footerRights',
-    linkAbout:'linkAbout',linkContact:'linkContact',linkPrivacy:'linkPrivacy',linkTerms:'linkTerms'
+    linkAbout:'linkAbout', linkContact:'linkContact', linkPrivacy:'linkPrivacy', linkTerms:'linkTerms'
   };
-  Object.entries(map).forEach(([key,id])=>{
+  Object.entries(map).forEach(([id,key])=>{
     const el=document.getElementById(id);
     if(el) el.textContent=t(key);
   });
 
-  const placeholder =
-    currentLang==='ar' ? 'القاهرة، لندن، دبي...' :
-    currentLang==='fa' ? 'تهران، لندن، دبی...' :
-    'İstanbul, London, Dubai...';
-  const ci=document.getElementById('cityInput');
-  const ri=document.getElementById('ramCityInput');
-  if(ci) ci.placeholder=placeholder;
-  if(ri) ri.placeholder=placeholder;
+  // ── Arama butonları (span değil, doğrudan textContent) ──
+  const sb=document.getElementById('searchBtn');    if(sb) sb.textContent=t('searchBtn');
+  const rsb=document.getElementById('ramSearchBtn'); if(rsb) rsb.textContent=t('ramSearchBtn');
+
+  // ── DÜZELTME: "Aktif Et" butonu — notifActivate anahtarından al ──
+  const nbb=document.getElementById('notifBannerBtn');
+  if(nbb) nbb.textContent=t('notifActivate');
+
+  // Placeholder
+  const ph = currentLang==='ar'?'القاهرة، لندن، دبي...':currentLang==='fa'?'تهران، لندن، دبی...':'İstanbul, London, Dubai...';
+  const ci=document.getElementById('cityInput');    if(ci) ci.placeholder=ph;
+  const ri=document.getElementById('ramCityInput'); if(ri) ri.placeholder=ph;
 
   setCookieTexts();
+}
+
+// ============================
+// BİLGİ BÖLÜMÜ — çok dilli, dil değişince güncellenir
+// ============================
+function renderInfoSection(){
+  const blocks = (T[currentLang]&&T[currentLang].info) || T.tr.info;
+  const rtl=['ar','fa'].includes(currentLang);
+  let html='';
+  blocks.forEach(b=>{
+    if(b.h)  html+=`<h2>${b.h}</h2>`;
+    if(b.p)  html+=`<p>${b.p}</p>`;
+    if(b.ul) html+=`<ul>${b.ul.map(i=>`<li>${i}</li>`).join('')}</ul>`;
+  });
+  const sec=document.getElementById('infoSection');
+  sec.innerHTML=html;
+  sec.dir=rtl?'rtl':'ltr';
 }
 
 // ============================
@@ -863,57 +908,30 @@ async function loadHeroImage(city){
 }
 
 // ============================
-// Local time helpers (city timezone)
+// Local time helpers
 // ============================
-function getZonedParts(timeZone, date = new Date()){
-  const fmt = new Intl.DateTimeFormat('en-US', {
-    timeZone,
-    year:'numeric',month:'2-digit',day:'2-digit',
-    hour:'2-digit',minute:'2-digit',second:'2-digit',
-    hour12:false
-  });
-  const parts = fmt.formatToParts(date);
-  const map = {};
-  parts.forEach(p=>{
-    if(p.type!=='literal') map[p.type]=p.value;
-  });
-  return {
-    year:+map.year, month:+map.month, day:+map.day,
-    hour:+map.hour, minute:+map.minute, second:+map.second
-  };
+function getZonedParts(timeZone, date=new Date()){
+  const fmt=new Intl.DateTimeFormat('en-US',{timeZone,year:'numeric',month:'2-digit',day:'2-digit',hour:'2-digit',minute:'2-digit',second:'2-digit',hour12:false});
+  const parts=fmt.formatToParts(date);
+  const map={};
+  parts.forEach(p=>{ if(p.type!=='literal') map[p.type]=p.value; });
+  return{year:+map.year,month:+map.month,day:+map.day,hour:+map.hour,minute:+map.minute,second:+map.second};
 }
-
 function getCityNow(){
-  if(cityTimeZone){
-    return getZonedParts(cityTimeZone, new Date());
-  }
+  if(cityTimeZone) return getZonedParts(cityTimeZone,new Date());
   const d=new Date();
-  return {year:d.getFullYear(),month:d.getMonth()+1,day:d.getDate(),hour:d.getHours(),minute:d.getMinutes(),second:d.getSeconds()};
+  return{year:d.getFullYear(),month:d.getMonth()+1,day:d.getDate(),hour:d.getHours(),minute:d.getMinutes(),second:d.getSeconds()};
 }
-
 function formatCityDate(){
-  const locale = currentLang==='tr'?'tr-TR':
-                 currentLang==='en'?'en-US':
-                 currentLang==='ar'?'ar':
-                 currentLang==='fa'?'fa-IR':
-                 currentLang==='fr'?'fr-FR':
-                 'de-DE';
-  const tz = cityTimeZone || Intl.DateTimeFormat().resolvedOptions().timeZone;
-  try{
-    return new Intl.DateTimeFormat(locale, { timeZone: tz, weekday:'long', year:'numeric', month:'long', day:'numeric' }).format(new Date());
-  }catch(e){
-    return '';
-  }
+  const locale=currentLang==='tr'?'tr-TR':currentLang==='en'?'en-US':currentLang==='ar'?'ar':currentLang==='fa'?'fa-IR':currentLang==='fr'?'fr-FR':'de-DE';
+  const tz=cityTimeZone||Intl.DateTimeFormat().resolvedOptions().timeZone;
+  try{ return new Intl.DateTimeFormat(locale,{timeZone:tz,weekday:'long',year:'numeric',month:'long',day:'numeric'}).format(new Date()); }
+  catch(e){ return ''; }
 }
-
 function formatCityClock(){
-  const tz = cityTimeZone || Intl.DateTimeFormat().resolvedOptions().timeZone;
-  try{
-    return new Intl.DateTimeFormat('en-GB', { timeZone: tz, hour:'2-digit', minute:'2-digit', second:'2-digit', hour12:false }).format(new Date());
-  }catch(e){
-    const d=new Date();
-    return [d.getHours(),d.getMinutes(),d.getSeconds()].map(x=>String(x).padStart(2,'0')).join(':');
-  }
+  const tz=cityTimeZone||Intl.DateTimeFormat().resolvedOptions().timeZone;
+  try{ return new Intl.DateTimeFormat('en-GB',{timeZone:tz,hour:'2-digit',minute:'2-digit',second:'2-digit',hour12:false}).format(new Date()); }
+  catch(e){ const d=new Date(); return[d.getHours(),d.getMinutes(),d.getSeconds()].map(x=>String(x).padStart(2,'0')).join(':'); }
 }
 
 // ============================
@@ -921,7 +939,6 @@ function formatCityClock(){
 // ============================
 function autoLocate(){ geoLocate(false); }
 function autoLocateRam(){ geoLocate(true); }
-
 function geoLocate(isRam){
   if(!isRam) showStatus(t('loading')+'...','loading');
   if(!navigator.geolocation){ if(!isRam) showStatus(t('geoError'),'error'); return; }
@@ -930,31 +947,20 @@ function geoLocate(isRam){
     ()=>{ if(!isRam) showStatus(t('geoError'),'error'); }
   );
 }
-
 async function fetchByCoords(lat,lon,isRam=false){
-  cityLat = +lat;
-  cityLon = +lon;
+  cityLat=+lat; cityLon=+lon;
   try{
     const r=await fetch(`https://nominatim.openstreetmap.org/reverse?format=json&lat=${lat}&lon=${lon}`);
     const d=await r.json();
     const city=d.address.city||d.address.town||d.address.village||d.address.county||'';
     const country=d.address.country||'';
     const display=(city?city:'')+(country?`, ${country}`:'');
-    if(!isRam){
-      setLoc(display);
-      await fetchPrayers(lat,lon);
-      loadHeroImage(city);
-    }else{
-      await fetchPrayersRam(lat,lon,display);
-    }
-  }catch(e){
-    if(!isRam) showStatus('Error.','error');
-  }
+    if(!isRam){ setLoc(display); await fetchPrayers(lat,lon); loadHeroImage(city); }
+    else{ await fetchPrayersRam(lat,lon,display); }
+  }catch(e){ if(!isRam) showStatus('Error.','error'); }
 }
-
 function searchCity(){ doSearch(false); }
 function searchRamCity(){ doSearch(true); }
-
 async function doSearch(isRam){
   const inputId=isRam?'ramCityInput':'cityInput';
   const val=document.getElementById(inputId).value.trim();
@@ -965,22 +971,13 @@ async function doSearch(isRam){
     const r=await fetch(`https://nominatim.openstreetmap.org/search?format=json&q=${encodeURIComponent(val)}&limit=5`);
     const d=await r.json();
     if(!d.length){ if(!isRam) showStatus(t('notFound'),'error'); return; }
-    const p=d[0];
-    cityLat=+p.lat; cityLon=+p.lon;
+    const p=d[0]; cityLat=+p.lat; cityLon=+p.lon;
     const display=p.display_name.split(',').slice(0,2).join(', ');
-    if(!isRam){
-      setLoc(display);
-      await fetchPrayers(p.lat,p.lon);
-      loadHeroImage(val);
-    }else{
-      await fetchPrayersRam(p.lat,p.lon,display);
-    }
-  }catch(e){
-    if(!isRam) showStatus('Error.','error');
-  }
+    if(!isRam){ setLoc(display); await fetchPrayers(p.lat,p.lon); loadHeroImage(val); }
+    else{ await fetchPrayersRam(p.lat,p.lon,display); }
+  }catch(e){ if(!isRam) showStatus('Error.','error'); }
 }
 
-// Autocomplete
 let st1=null,st2=null;
 document.getElementById('cityInput').addEventListener('input',function(){
   clearTimeout(st1);
@@ -988,17 +985,13 @@ document.getElementById('cityInput').addEventListener('input',function(){
   st1=setTimeout(()=>fetchSugg(this.value.trim(),'suggestions','cityInput',false),350);
 });
 document.getElementById('cityInput').addEventListener('keydown',function(e){ if(e.key==='Enter'){ searchCity(); closeSugg('suggestions'); } });
-
 document.getElementById('ramCityInput').addEventListener('input',function(){
   clearTimeout(st2);
   if(this.value.trim().length<2){ closeSugg('ramSuggestions'); return; }
   st2=setTimeout(()=>fetchSugg(this.value.trim(),'ramSuggestions','ramCityInput',true),350);
 });
 document.getElementById('ramCityInput').addEventListener('keydown',function(e){ if(e.key==='Enter'){ searchRamCity(); closeSugg('ramSuggestions'); } });
-
-document.addEventListener('click',function(e){
-  if(!e.target.closest('.search-row')){ closeSugg('suggestions'); closeSugg('ramSuggestions'); }
-});
+document.addEventListener('click',function(e){ if(!e.target.closest('.search-row')){ closeSugg('suggestions'); closeSugg('ramSuggestions'); } });
 
 async function fetchSugg(q,boxId,inputId,isRam){
   try{
@@ -1011,18 +1004,13 @@ async function fetchSugg(q,boxId,inputId,isRam){
       const div=document.createElement('div');
       div.className='sugg-item';
       div.textContent=p.display_name.split(',').slice(0,3).join(', ');
-      div.onclick=async ()=>{
+      div.onclick=async()=>{
         document.getElementById(inputId).value=p.display_name.split(',')[0];
         closeSugg(boxId);
         const display=p.display_name.split(',').slice(0,2).join(', ');
         cityLat=+p.lat; cityLon=+p.lon;
-        if(!isRam){
-          setLoc(display);
-          await fetchPrayers(p.lat,p.lon);
-          loadHeroImage(p.display_name.split(',')[0]);
-        }else{
-          await fetchPrayersRam(p.lat,p.lon,display);
-        }
+        if(!isRam){ setLoc(display); await fetchPrayers(p.lat,p.lon); loadHeroImage(p.display_name.split(',')[0]); }
+        else{ await fetchPrayersRam(p.lat,p.lon,display); }
       };
       box.appendChild(div);
     });
@@ -1032,7 +1020,7 @@ async function fetchSugg(q,boxId,inputId,isRam){
 function closeSugg(id){ const el=document.getElementById(id); if(el) el.style.display='none'; }
 
 // ============================
-// Prayer Times (timezone-aware countdown)
+// Prayer Times
 // ============================
 async function fetchPrayers(lat,lon){
   showStatus(t('loading')+'...','loading');
@@ -1042,19 +1030,11 @@ async function fetchPrayers(lat,lon){
     const r=await fetch(url);
     const d=await r.json();
     if(d.code!==200){ showStatus('Could not fetch prayer data.','error'); return; }
-
     prayerData=d.data;
-    cityTimeZone = (d.data.meta && d.data.meta.timezone) ? d.data.meta.timezone : cityTimeZone;
-
-    hideStatus();
-    renderDate(d.data.date);
-    renderPrayers(d.data.timings);
-    startClock();
-  }catch(e){
-    showStatus('Network error.','error');
-  }
+    cityTimeZone=(d.data.meta&&d.data.meta.timezone)?d.data.meta.timezone:cityTimeZone;
+    hideStatus(); renderDate(d.data.date); renderPrayers(d.data.timings); startClock();
+  }catch(e){ showStatus('Network error.','error'); }
 }
-
 async function fetchPrayersRam(lat,lon,display){
   try{
     const now=new Date();
@@ -1062,9 +1042,7 @@ async function fetchPrayersRam(lat,lon,display){
     const r=await fetch(url);
     const d=await r.json();
     if(d.code!==200) return;
-
-    cityTimeZone = (d.data.meta && d.data.meta.timezone) ? d.data.meta.timezone : cityTimeZone;
-
+    cityTimeZone=(d.data.meta&&d.data.meta.timezone)?d.data.meta.timezone:cityTimeZone;
     const timings=d.data.timings;
     document.getElementById('iftarTime').textContent=timings.Maghrib.substring(0,5);
     document.getElementById('sahurTime').textContent=timings.Fajr.substring(0,5);
@@ -1073,26 +1051,17 @@ async function fetchPrayersRam(lat,lon,display){
     startIftarCountdown(timings.Maghrib);
   }catch(e){}
 }
-
 function renderPrayers(timings){
   const keys=['Fajr','Sunrise','Dhuhr','Asr','Maghrib','Isha'];
   const names=t('prayers');
   const arNames=t('prayersAr');
-
   const nowParts=getCityNow();
   const nowM=nowParts.hour*60+nowParts.minute;
-
-  const mins=keys.map(k=>{
-    const [hh,mm]=(timings[k]||'00:00').split(':').map(Number);
-    return hh*60+mm;
-  });
-
+  const mins=keys.map(k=>{ const[hh,mm]=(timings[k]||'00:00').split(':').map(Number); return hh*60+mm; });
   let nextIdx=mins.findIndex(m=>m>nowM);
   if(nextIdx===-1) nextIdx=0;
-
   const grid=document.getElementById('prayersGrid');
   grid.innerHTML='';
-
   keys.forEach((k,i)=>{
     const card=document.createElement('div');
     card.className='prayer-card'+(i===nextIdx?' active':'');
@@ -1104,102 +1073,64 @@ function renderPrayers(timings){
       ${i===nextIdx?`<div class="next-badge">${t('nextBadge')}</div>`:''}`;
     grid.appendChild(card);
   });
-
   document.getElementById('prayerSection').style.display='block';
-
   clearInterval(cdInt);
   cdInt=setInterval(()=>updateCD(mins),1000);
   updateCD(mins);
 }
-
 function updateCD(mins){
   const nowParts=getCityNow();
   const nowM=nowParts.hour*60+nowParts.minute;
   const nowS=nowParts.second;
-
   const nextIdx=mins.findIndex(m=>m>nowM);
   let diff;
-  if(nextIdx===-1){
-    diff=((24*60)-nowM+mins[0])*60-nowS;
-  }else{
-    diff=(mins[nextIdx]-nowM)*60-nowS;
-  }
+  if(nextIdx===-1){ diff=((24*60)-nowM+mins[0])*60-nowS; }
+  else{ diff=(mins[nextIdx]-nowM)*60-nowS; }
   diff=Math.max(0,diff);
-
-  const h=Math.floor(diff/3600);
-  const m=Math.floor((diff%3600)/60);
-  const s=Math.floor(diff%60);
+  const h=Math.floor(diff/3600),m=Math.floor((diff%3600)/60),s=Math.floor(diff%60);
   document.getElementById('countdown').textContent=
     `${String(h).padStart(2,'0')}:${String(m).padStart(2,'0')}:${String(s).padStart(2,'0')}`;
 }
-
-// Date bar: show city-local Gregorian date + Hijri from API
 function renderDate(dateObj){
   const hj=dateObj.hijri;
-  const greg = formatCityDate();
-
+  const greg=formatCityDate();
   document.getElementById('dateDisplay').innerHTML=`📅 <span>${greg}</span>`;
   document.getElementById('hijriDisplay').innerHTML=`🌙 <span>${hj.day} ${hj.month.en} ${hj.year} H</span>`;
   document.getElementById('datetimeBar').style.display='flex';
 }
-
-// Clock: show city-local time
 function startClock(){
   clearInterval(clockInt);
-  const tick=()=>{
-    document.getElementById('clockDisplay').textContent = formatCityClock();
-  };
-  tick();
-  clockInt=setInterval(tick,1000);
+  const tick=()=>{ document.getElementById('clockDisplay').textContent=formatCityClock(); };
+  tick(); clockInt=setInterval(tick,1000);
 }
-
-// ============================
-// Ramadan Iftar countdown (timezone-aware)
-// ============================
 function startIftarCountdown(maghribTime){
   clearInterval(iftarInt);
-  const [th,tm]=maghribTime.split(':').map(Number);
-
+  const[th,tm]=maghribTime.split(':').map(Number);
   const tick=()=>{
-    // compute "now" and "target today" in city-local time
     const now=getCityNow();
-    const nowSeconds = now.hour*3600 + now.minute*60 + now.second;
-    const targetSeconds = th*3600 + tm*60;
-
-    let diff = targetSeconds - nowSeconds;
-    if(diff<=0){
-      document.getElementById('iftarCd').textContent='Iftar time 🌙';
-      clearInterval(iftarInt);
-      return;
-    }
-    const h=Math.floor(diff/3600);
-    const m=Math.floor((diff%3600)/60);
-    const s=Math.floor(diff%60);
-    document.getElementById('iftarCd').textContent =
+    const nowSeconds=now.hour*3600+now.minute*60+now.second;
+    const targetSeconds=th*3600+tm*60;
+    let diff=targetSeconds-nowSeconds;
+    if(diff<=0){ document.getElementById('iftarCd').textContent='Iftar time 🌙'; clearInterval(iftarInt); return; }
+    const h=Math.floor(diff/3600),m=Math.floor((diff%3600)/60),s=Math.floor(diff%60);
+    document.getElementById('iftarCd').textContent=
       `${String(h).padStart(2,'0')}:${String(m).padStart(2,'0')}:${String(s).padStart(2,'0')}`;
   };
-  tick();
-  iftarInt=setInterval(tick,1000);
+  tick(); iftarInt=setInterval(tick,1000);
 }
 
 // ============================
 // Daily content
 // ============================
-function getDayOfYear(){
-  const now=new Date();
-  const start=new Date(now.getFullYear(),0,0);
-  return Math.floor((now-start)/86400000);
-}
+function getDayOfYear(){ const now=new Date(),start=new Date(now.getFullYear(),0,0); return Math.floor((now-start)/86400000); }
 function renderDaily(){
   const day=getDayOfYear();
   const ayah=AYAHS[day%AYAHS.length];
   const hadith=HADITHS[day%HADITHS.length];
   const l=currentLang;
-
   document.getElementById('ayahArabic').textContent=ayah.ar;
   document.getElementById('ayahTranslation').textContent=ayah[l]||ayah.tr;
   document.getElementById('ayahSource').textContent='— '+ayah.src;
-
   document.getElementById('hadithText').textContent=hadith[l]||hadith.tr;
   document.getElementById('hadithSource').textContent='— '+hadith.src;
 }
@@ -1212,14 +1143,11 @@ function renderCities(){
   CITIES.forEach(c=>{
     const pill=document.createElement('div'); pill.className='city-pill';
     pill.textContent=c.n;
-    pill.onclick=async ()=>{
+    pill.onclick=async()=>{
       document.getElementById('cityInput').value=c.n;
-      setLoc(c.n);
-      cityLat=c.lat; cityLon=c.lon;
-      await fetchPrayers(c.lat,c.lon);
-      loadHeroImage(c.n);
-      window.scrollTo({top:0,behavior:'smooth'});
-      showTab('home');
+      setLoc(c.n); cityLat=c.lat; cityLon=c.lon;
+      await fetchPrayers(c.lat,c.lon); loadHeroImage(c.n);
+      window.scrollTo({top:0,behavior:'smooth'}); showTab('home');
     };
     grid.appendChild(pill);
   });
@@ -1231,32 +1159,21 @@ function renderCities(){
 function setLoc(name){ document.getElementById('locationInfo').textContent='📍 '+name; }
 function showStatus(msg,type){
   const el=document.getElementById('statusMsg');
-  el.textContent=msg;
-  el.className='status-msg '+type;
-  el.style.display='block';
+  el.textContent=msg; el.className='status-msg '+type; el.style.display='block';
   if(!prayerData) document.getElementById('prayerSection').style.display='none';
 }
-function hideStatus(){
-  document.getElementById('statusMsg').style.display='none';
-  document.getElementById('prayerSection').style.display='block';
-}
+function hideStatus(){ document.getElementById('statusMsg').style.display='none'; document.getElementById('prayerSection').style.display='block'; }
 
 // ============================
 // INIT
 // ============================
 (function init(){
-  // IMPORTANT: keep file clean - nothing should exist after </html>
-
   const lang=detectLangFromDomain();
-  setLang(lang);
-
+  setLang(lang);        // applyAllTranslations + renderInfoSection çağırır
   renderDaily();
   renderCities();
   loadHeroImage();
-
   showCookieBannerIfNeeded();
-
-  // Try auto-locate silently
   if(navigator.geolocation){
     navigator.geolocation.getCurrentPosition(
       pos=>fetchByCoords(pos.coords.latitude,pos.coords.longitude,false),
@@ -1264,78 +1181,6 @@ function hideStatus(){
     );
   }
 })();
-</script>
-<section style="max-width:1100px;margin:80px auto 40px auto;padding:40px 20px;color:#ddd;line-height:1.8;font-size:16px;">
-  <h2 style="color:#f5c76f;margin-bottom:20px;">Namaz Vakitleri Nedir ve Nasıl Hesaplanır?</h2>
-
-  <p>
-  Namaz vakitleri, güneşin dünya üzerindeki konumuna göre belirlenen günlük ibadet zamanlarıdır. 
-  Sabah (Fajr), Öğle (Dhuhr), İkindi (Asr), Akşam (Maghrib) ve Yatsı (Isha) vakitleri astronomik 
-  hesaplamalara dayanır. Bu vakitler bulunduğunuz şehir, ülke ve coğrafi koordinatlara göre değişir.
-  </p>
-
-  <p>
-  EzanClock, dünya genelindeki şehirler için güvenilir namaz vakitlerini anlık olarak sunar. 
-  Hesaplamalar uluslararası kabul görmüş astronomik yöntemler kullanılarak yapılır ve 
-  düzenli olarak güncellenir.
-  </p>
-
-  <h2 style="color:#f5c76f;margin-top:40px;margin-bottom:20px;">EzanClock Nasıl Çalışır?</h2>
-
-  <p>
-  Sistemimiz, konum tabanlı veri sağlayan güvenilir API servisleri aracılığıyla günlük namaz 
-  vakitlerini çeker ve kullanıcılara sade, hızlı ve modern bir arayüzle sunar. 
-  Kullanıcılar şehir araması yapabilir, popüler şehirleri seçebilir ve günlük vakitleri 
-  kolayca görüntüleyebilir.
-  </p>
-
-  <p>
-  Ayrıca kullanıcılar isterlerse namaz vakti bildirimlerini aktif ederek, 
-  vakitlerden önce hatırlatma alabilirler. Bu özellik, düzenli ibadet alışkanlığı 
-  kazanmak isteyenler için büyük kolaylık sağlar.
-  </p>
-
-  <h2 style="color:#f5c76f;margin-top:40px;margin-bottom:20px;">Dünya Genelinde Namaz Vakitleri</h2>
-
-  <p>
-  EzanClock, Avrupa, Orta Doğu, Amerika ve Asya dahil olmak üzere dünyanın her yerindeki 
-  şehirler için namaz vakitlerini destekler. İstanbul, London, Dubai, Berlin, Amsterdam, 
-  Riyadh gibi popüler şehirlerin yanı sıra küçük yerleşim yerleri için de veri sunar.
-  </p>
-
-  <p>
-  Amacımız, dünyanın her yerindeki Müslümanların doğru ve zamanında bilgiye 
-  kolayca ulaşmasını sağlamaktır.
-  </p>
-
-  <h2 style="color:#f5c76f;margin-top:40px;margin-bottom:20px;">Neden EzanClock?</h2>
-
-  <ul style="margin-left:20px;">
-    <li>Gerçek zamanlı ve güncel namaz vakitleri</li>
-    <li>Modern ve hızlı arayüz</li>
-    <li>Dünya genelinde şehir desteği</li>
-    <li>Bildirim özelliği</li>
-    <li>Mobil ve masaüstü uyumlu tasarım</li>
-  </ul>
-
-  <p style="margin-top:30px;">
-  EzanClock, kullanıcı deneyimini ön planda tutarak tasarlanmıştır. 
-  Amacımız sade, güvenilir ve hızlı bir namaz vakti platformu sunmaktır.
-  </p>
-</section>
-<script>
-if(!localStorage.getItem("cookieConsent")){
-  const consent = document.createElement("div");
-  consent.innerHTML = `
-  <div style="position:fixed;bottom:0;left:0;width:100%;background:#111;color:#fff;padding:15px;text-align:center;z-index:9999;font-size:14px;">
-    This website uses cookies and third-party services including Google AdSense to improve user experience.
-    <button onclick="localStorage.setItem('cookieConsent', true); this.parentElement.remove();" 
-    style="margin-left:15px;padding:6px 12px;background:#f5c76f;border:none;border-radius:4px;cursor:pointer;">
-    Accept
-    </button>
-  </div>`;
-  document.body.appendChild(consent);
-}
 </script>
 </body>
 </html>
