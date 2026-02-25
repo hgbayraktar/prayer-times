@@ -161,22 +161,52 @@ body[dir="rtl"]{font-family:'Noto Sans Arabic','Cormorant Garamond',serif;}
 #infoSection ul{margin-left:20px;margin-bottom:12px;}
 
 /* ══ Kıble Pusulası ══ */
-.qibla-outer{width:200px;height:200px;border-radius:50%;border:2px solid rgba(200,168,75,.3);background:rgba(10,18,32,.7);margin:0 auto 1rem;position:relative;display:flex;align-items:center;justify-content:center;box-shadow:0 0 30px rgba(200,168,75,.08);}
-.qibla-ring{width:176px;height:176px;border-radius:50%;border:1px solid rgba(200,168,75,.12);position:absolute;display:flex;align-items:center;justify-content:center;}
-.qibla-needle{width:0;height:0;position:relative;display:flex;flex-direction:column;align-items:center;transition:transform .9s cubic-bezier(.34,1.56,.64,1);}
-.qibla-needle-n{width:0;height:0;border-left:7px solid transparent;border-right:7px solid transparent;border-bottom:65px solid var(--gold);margin-bottom:2px;}
-.qibla-needle-s{width:0;height:0;border-left:7px solid transparent;border-right:7px solid transparent;border-top:28px solid rgba(200,168,75,.28);}
-.qibla-kaaba-icon{position:absolute;top:7px;left:50%;transform:translateX(-50%);font-size:1.1rem;}
-.qibla-card{font-size:.62rem;letter-spacing:.1em;color:var(--white-dim);text-transform:uppercase;}
-span.qibla-deg-big{font-size:1.8rem;color:var(--gold);font-weight:300;letter-spacing:.06em;display:block;margin:.4rem 0 .15rem;}
-.qibla-sensor-btn{background:transparent;border:1px solid var(--gold-dim);color:var(--white-dim);padding:.3rem .85rem;border-radius:20px;cursor:pointer;font-family:inherit;font-size:.72rem;margin-top:.7rem;transition:all .25s;}
-.qibla-sensor-btn:hover,.qibla-sensor-btn.on{border-color:var(--gold);color:var(--gold);}
-.compass-dir{position:absolute;font-size:.6rem;color:var(--gold-dim);font-weight:700;}
-.compass-dir.cn{top:5px;left:50%;transform:translateX(-50%);color:var(--gold);}
-.compass-dir.cs{bottom:5px;left:50%;transform:translateX(-50%);}
-.compass-dir.ce{right:7px;top:50%;transform:translateY(-50%);}
-.compass-dir.cw{left:7px;top:50%;transform:translateY(-50%);}
-.qibla-nocity{color:var(--white-dim);font-size:.84rem;padding:1.2rem;text-align:center;}
+.qibla-wrap{text-align:center;padding:.6rem 0 .8rem;}
+/* Pusula dış çerçeve */
+.compass-outer{width:230px;height:230px;border-radius:50%;border:2px solid rgba(200,168,75,.35);background:radial-gradient(circle,rgba(12,22,40,.95) 60%,rgba(6,12,24,.98));margin:0 auto 1rem;position:relative;box-shadow:0 0 40px rgba(200,168,75,.1),inset 0 0 20px rgba(0,0,0,.4);}
+.compass-outer::before{content:'';position:absolute;inset:8px;border-radius:50%;border:1px solid rgba(200,168,75,.1);}
+.compass-outer::after{content:'';position:absolute;inset:18px;border-radius:50%;border:1px dashed rgba(200,168,75,.06);}
+/* Yön harfleri */
+.cp-dir{position:absolute;font-size:.72rem;font-weight:700;letter-spacing:.05em;z-index:3;pointer-events:none;}
+.cp-dir.n{top:7px;left:50%;transform:translateX(-50%);color:var(--gold-light);}
+.cp-dir.s{bottom:7px;left:50%;transform:translateX(-50%);color:var(--white-dim);}
+.cp-dir.e{right:9px;top:50%;transform:translateY(-50%);color:var(--white-dim);}
+.cp-dir.w{left:9px;top:50%;transform:translateY(-50%);color:var(--white-dim);}
+/* İbre konteyneri */
+.compass-needles{position:absolute;inset:0;display:flex;align-items:center;justify-content:center;}
+/* KUZEY İBRESİ (kırmızı/gri) — compass heading'e göre döner */
+.needle-north-wrap{position:absolute;width:10px;height:80px;top:calc(50% - 60px);left:calc(50% - 5px);transform-origin:50% 60px;transition:transform .3s ease;}
+.needle-north-up{width:0;height:0;border-left:5px solid transparent;border-right:5px solid transparent;border-bottom:55px solid #e05a5a;margin:0 auto;}
+.needle-north-down{width:0;height:0;border-left:5px solid transparent;border-right:5px solid transparent;border-top:25px solid rgba(200,180,180,.2);margin:0 auto;}
+/* KIBLe İBRESİ (altın sarısı) — kıble açısına döner */
+.needle-qibla-wrap{position:absolute;width:12px;height:80px;top:calc(50% - 60px);left:calc(50% - 6px);transform-origin:50% 60px;transition:transform .7s cubic-bezier(.34,1.4,.64,1);}
+.needle-qibla-up{width:0;height:0;border-left:6px solid transparent;border-right:6px solid transparent;border-bottom:58px solid var(--gold);margin:0 auto;}
+.needle-qibla-down{width:0;height:0;border-left:6px solid transparent;border-right:6px solid transparent;border-top:22px solid rgba(200,168,75,.2);margin:0 auto;}
+.needle-qibla-tip{position:absolute;top:-20px;left:50%;transform:translateX(-50%);font-size:.95rem;line-height:1;}
+/* Merkez nokta */
+.compass-center{position:absolute;width:10px;height:10px;border-radius:50%;background:var(--gold);top:50%;left:50%;transform:translate(-50%,-50%);z-index:10;box-shadow:0 0 8px rgba(200,168,75,.6);}
+/* Legend */
+.compass-legend{display:flex;gap:1.2rem;justify-content:center;margin-bottom:.8rem;font-size:.68rem;}
+.legend-item{display:flex;align-items:center;gap:.35rem;color:var(--white-dim);}
+.legend-dot{width:10px;height:10px;border-radius:2px;}
+.legend-dot.north{background:#e05a5a;}
+.legend-dot.qibla{background:var(--gold);}
+/* Derece + yön bilgisi */
+.qibla-deg-info{font-size:1.9rem;color:var(--gold);font-weight:300;letter-spacing:.06em;margin:.3rem 0 .1rem;}
+.qibla-dir-info{font-size:.78rem;color:var(--white-dim);letter-spacing:.1em;margin-bottom:.8rem;min-height:1.2em;}
+/* Konum + sensör butonları */
+.qibla-loc-row{display:flex;gap:.5rem;justify-content:center;flex-wrap:wrap;margin-bottom:.6rem;}
+.qibla-btn{background:transparent;border:1px solid var(--gold-dim);color:var(--white-dim);padding:.3rem .85rem;border-radius:20px;cursor:pointer;font-family:inherit;font-size:.72rem;transition:all .25s;}
+.qibla-btn:hover,.qibla-btn.on{border-color:var(--gold);color:var(--gold);}
+.qibla-status{font-size:.72rem;color:var(--gold-dim);letter-spacing:.08em;min-height:1.1rem;margin-bottom:.3rem;}
+/* Şehir arama */
+.qibla-search-row{display:flex;gap:.4rem;max-width:320px;margin:.4rem auto .6rem;position:relative;}
+.qibla-input{flex:1;background:rgba(18,32,51,.8);border:1px solid var(--gold-dim);border-radius:5px;padding:.48rem .8rem;color:var(--white);font-family:inherit;font-size:.85rem;outline:none;transition:border-color .3s;}
+.qibla-input:focus{border-color:var(--gold);}
+.qibla-search-btn{background:linear-gradient(135deg,var(--gold-dim),var(--gold));border:none;border-radius:5px;color:var(--navy);padding:.48rem .9rem;cursor:pointer;font-family:inherit;font-size:.82rem;font-weight:700;white-space:nowrap;}
+.qibla-sugg{position:absolute;top:calc(100% + 4px);left:0;right:72px;background:var(--navy-mid);border:1px solid var(--gold-dim);border-radius:5px;z-index:50;display:none;max-height:180px;overflow-y:auto;box-shadow:0 8px 24px rgba(0,0,0,.5);}
+.qibla-sugg-item{padding:.45rem .9rem;cursor:pointer;font-size:.8rem;color:var(--white-dim);border-bottom:1px solid rgba(200,168,75,.05);}
+.qibla-sugg-item:hover{background:rgba(200,168,75,.08);color:var(--white);}
 
 /* ══ Tesbih Sayacı ══ */
 .tasbih-wrap{text-align:center;padding:.8rem 0;}
@@ -431,11 +461,54 @@ span.qibla-deg-big{font-size:1.8rem;color:var(--gold);font-weight:300;letter-spa
   <div class="tab-content" id="tab-content-qibla">
     <div class="daily-card" style="margin-bottom:1.3rem;">
       <div class="daily-card-header"><span class="daily-card-icon">🧭</span><span class="daily-card-title" id="qiblaCardTitle">Kıble Yönü</span></div>
-      <div id="qiblaBody"><div class="qibla-nocity" id="qiblaNocity">Kıble yönünü görmek için önce Vakitler sekmesinden şehrinizi seçin.</div></div>
+      <div class="qibla-wrap">
+        <!-- Konum butonları -->
+        <div class="qibla-loc-row">
+          <button class="qibla-btn" id="qiblaGpsBtn" onclick="qiblaAutoLocate()">📍 <span id="qiblaGpsBtnLbl">Konumumu Algıla</span></button>
+          <button class="qibla-btn" id="qiblaSensorBtn" onclick="toggleCompass()" style="display:none">🧭 <span id="qiblaSensorLbl">Canlı Pusula</span></button>
+        </div>
+        <!-- Şehir arama -->
+        <div class="qibla-search-row">
+          <input type="text" class="qibla-input" id="qiblaInput" placeholder="İstanbul, London..." autocomplete="off" oninput="qiblaInputHandler()" onkeydown="if(event.key==='Enter') qiblaSearch()"/>
+          <div class="qibla-sugg" id="qiblaSugg"></div>
+          <button class="qibla-search-btn" onclick="qiblaSearch()" id="qiblaSearchBtnEl">Ara</button>
+        </div>
+        <div class="qibla-status" id="qiblaStatus"></div>
+        <!-- İki ibreli pusula -->
+        <div class="compass-outer" id="compassOuter">
+          <span class="cp-dir n" id="cpN">N</span>
+          <span class="cp-dir s" id="cpS">S</span>
+          <span class="cp-dir e" id="cpE">E</span>
+          <span class="cp-dir w" id="cpW">W</span>
+          <div class="compass-needles">
+            <!-- Kuzey ibresi (kırmızı/gri) -->
+            <div class="needle-north-wrap" id="needleNorth">
+              <div class="needle-north-up"></div>
+              <div class="needle-north-down"></div>
+            </div>
+            <!-- Kıble ibresi (altın sarısı) -->
+            <div class="needle-qibla-wrap" id="needleQibla" style="transform:rotate(0deg)">
+              <div style="position:relative;display:flex;flex-direction:column;align-items:center;">
+                <div class="needle-qibla-tip">🕋</div>
+                <div class="needle-qibla-up"></div>
+              </div>
+              <div class="needle-qibla-down"></div>
+            </div>
+          </div>
+          <div class="compass-center"></div>
+        </div>
+        <!-- Legend -->
+        <div class="compass-legend">
+          <div class="legend-item"><div class="legend-dot north"></div><span id="legendNorth">Kuzey</span></div>
+          <div class="legend-item"><div class="legend-dot qibla"></div><span id="legendQibla">Kıble yönü</span></div>
+        </div>
+        <div class="qibla-deg-info" id="qiblaDegInfo">—</div>
+        <div class="qibla-dir-info" id="qiblaDirInfo">Konum seçin</div>
+      </div>
     </div>
     <div class="daily-card">
       <div class="daily-card-header"><span class="daily-card-icon">🕋</span><span class="daily-card-title" id="qiblaInfoTitle">Kıble Hakkında</span></div>
-      <p class="translation" id="qiblaInfoText">Kıble, Müslümanların namaz kılarken yöneldikleri Mekke'deki Kâbe'nin yönüdür. Hesaplama, şehrinizin koordinatları ile Kâbe koordinatları arasındaki açıya göre yapılır.</p>
+      <p class="translation" id="qiblaInfoText">Altın sarısı ibne kıble yönünü, kırmızı ibne ise kuzeyi gösterir. Canlı Pusula açıkken ibreler telefonun yönüne göre gerçek zamanlı döner.</p>
     </div>
   </div>
 
@@ -1096,7 +1169,7 @@ function geoLocate(isRam){
 async function fetchByCoords(lat,lon,isRam=false){
   cityLat=+lat; cityLon=+lon;
   try{
-    const r=await fetch(`https://nominatim.openstreetmap.org/reverse?format=json&lat=${lat}&lon=${lon}`);
+    const r=await fetch(`https://nominatim.openstreetmap.org/reverse?format=json&lat=${lat}&lon=${lon}&accept-language=${nominatimLang()}&namedetails=1`);
     const d=await r.json();
     const city=d.address.city||d.address.town||d.address.village||d.address.county||'';
     const country=d.address.country||'';
@@ -1114,7 +1187,7 @@ async function doSearch(isRam){
   closeSugg(isRam?'ramSuggestions':'suggestions');
   if(!isRam) showStatus(t('loading')+'...','loading');
   try{
-    const r=await fetch(`https://nominatim.openstreetmap.org/search?format=json&q=${encodeURIComponent(val)}&limit=5`);
+    const r=await fetch(`https://nominatim.openstreetmap.org/search?format=json&q=${encodeURIComponent(val)}&limit=5&accept-language=${nominatimLang()}&namedetails=1`);
     const d=await r.json();
     if(!d.length){ if(!isRam) showStatus(t('notFound'),'error'); return; }
     const p=d[0]; cityLat=+p.lat; cityLon=+p.lon;
@@ -1137,11 +1210,11 @@ document.getElementById('ramCityInput').addEventListener('input',function(){
   st2=setTimeout(()=>fetchSugg(this.value.trim(),'ramSuggestions','ramCityInput',true),350);
 });
 document.getElementById('ramCityInput').addEventListener('keydown',function(e){ if(e.key==='Enter'){ searchRamCity(); closeSugg('ramSuggestions'); } });
-document.addEventListener('click',function(e){ if(!e.target.closest('.search-row')){ closeSugg('suggestions'); closeSugg('ramSuggestions'); } });
+document.addEventListener('click',function(e){ if(!e.target.closest('.search-row')){ closeSugg('suggestions'); closeSugg('ramSuggestions'); closeSugg('qiblaSuggestions'); } });
 
 async function fetchSugg(q,boxId,inputId,isRam){
   try{
-    const r=await fetch(`https://nominatim.openstreetmap.org/search?format=json&q=${encodeURIComponent(q)}&limit=6`);
+    const r=await fetch(`https://nominatim.openstreetmap.org/search?format=json&q=${encodeURIComponent(q)}&limit=6&accept-language=${nominatimLang()}&namedetails=1`);
     const d=await r.json();
     const box=document.getElementById(boxId);
     if(!d.length){ closeSugg(boxId); return; }
@@ -1155,13 +1228,19 @@ async function fetchSugg(q,boxId,inputId,isRam){
         closeSugg(boxId);
         const display=p.display_name.split(',').slice(0,2).join(', ');
         cityLat=+p.lat; cityLon=+p.lon;
-        if(!isRam){ setLoc(display); await fetchPrayers(p.lat,p.lon); loadHeroImage(p.display_name.split(',')[0]); }
+        if(isRam==='qibla'){ qiblaLat=+p.lat; qiblaLon=+p.lon; renderQiblaCompass(+p.lat,+p.lon,display); document.getElementById('qiblaCityInput').value=p.display_name.split(',')[0]; }
+        else if(!isRam){ setLoc(display); await fetchPrayers(p.lat,p.lon); loadHeroImage(p.display_name.split(',')[0]); }
         else{ await fetchPrayersRam(p.lat,p.lon,display); }
       };
       box.appendChild(div);
     });
     box.style.display='block';
   }catch(e){ closeSugg(boxId); }
+}
+
+function nominatimLang(){
+  const m={tr:'tr',en:'en',ar:'ar',fa:'fa',fr:'fr',de:'de'};
+  return m[currentLang]||'en';
 }
 function closeSugg(id){ const el=document.getElementById(id); if(el) el.style.display='none'; }
 
@@ -1317,6 +1396,8 @@ function hideStatus(){ document.getElementById('statusMsg').style.display='none'
 // ══════════════════════════════════════════════
 const KAABA={lat:21.4225,lon:39.8262};
 let compassActive=false, compassHandler=null;
+let qiblaLat=null, qiblaLon=null, qiblaDeg=null;
+let qiblaSuggTimer=null;
 
 function calcQibla(lat,lon){
   const dL=(KAABA.lon-lon)*Math.PI/180;
@@ -1325,49 +1406,153 @@ function calcQibla(lat,lon){
   const x=Math.cos(la1)*Math.sin(la2)-Math.sin(la1)*Math.cos(la2)*Math.cos(dL);
   return((Math.atan2(y,x)*180/Math.PI)+360)%360;
 }
-function qiblaDir(deg){
-  const dirs={tr:['K','KD','D','GD','G','GB','B','KB'],en:['N','NE','E','SE','S','SW','W','NW'],ar:['ش','ش.ش','ش','ج.ش','ج','ج.غ','غ','ش.غ'],fa:['ش','ش.ش','ش','ج.ش','ج','ج.غ','غ','ش.غ'],fr:['N','NE','E','SE','S','SO','O','NO'],de:['N','NO','O','SO','S','SW','W','NW']};
+function qiblaDirFull(deg){
+  const dirs={
+    tr:['Kuzey','Kuzeydoğu','Doğu','Güneydoğu','Güney','Güneybatı','Batı','Kuzeybatı'],
+    en:['North','Northeast','East','Southeast','South','Southwest','West','Northwest'],
+    ar:['شمال','شمال شرق','شرق','جنوب شرق','جنوب','جنوب غرب','غرب','شمال غرب'],
+    fa:['شمال','شمال‌شرق','شرق','جنوب‌شرق','جنوب','جنوب‌غرب','غرب','شمال‌غرب'],
+    fr:['Nord','Nord-Est','Est','Sud-Est','Sud','Sud-Ouest','Ouest','Nord-Ouest'],
+    de:['Norden','Nordosten','Osten','Südosten','Süden','Südwesten','Westen','Nordwesten']
+  };
   return(dirs[currentLang]||dirs.en)[Math.round(deg/45)%8];
 }
 
-function renderQibla(){
-  const body=document.getElementById('qiblaBody'); if(!body) return;
-  if(!cityLat||!cityLon){
-    body.innerHTML=`<div class="qibla-nocity">${t('qiblaNocity')}</div>`; return;
+function updateQiblaDisplay(lat, lon, locationName){
+  qiblaLat=lat; qiblaLon=lon;
+  qiblaDeg=calcQibla(lat, lon);
+  // İbreyi döndür
+  const needleQ=document.getElementById('needleQibla');
+  if(needleQ) needleQ.style.transform=`rotate(${qiblaDeg.toFixed(1)}deg)`;
+  // Derece + yön
+  const degEl=document.getElementById('qiblaDegInfo');
+  if(degEl) degEl.textContent=`${Math.round(qiblaDeg)}° ${qiblaDirFull(qiblaDeg)}`;
+  const dirEl=document.getElementById('qiblaDirInfo');
+  if(dirEl) dirEl.textContent=locationName||'';
+  // Sensör butonunu göster
+  if('DeviceOrientationEvent' in window){
+    const sBtn=document.getElementById('qiblaSensorBtn');
+    if(sBtn) sBtn.style.display='inline-block';
   }
-  const deg=calcQibla(cityLat,cityLon);
-  const dir=qiblaDir(deg);
-  const hasSensor=('DeviceOrientationEvent' in window);
-  body.innerHTML=`
-    <div style="text-align:center;padding:1rem 0;">
-      <div class="qibla-outer">
-        <div class="qibla-ring">
-          <span class="compass-dir cn">N</span><span class="compass-dir cs">S</span>
-          <span class="compass-dir ce">E</span><span class="compass-dir cw">W</span>
-          <span class="qibla-kaaba-icon">🕋</span>
-          <div class="qibla-needle" id="qiblaNeedle" style="transform:rotate(${deg.toFixed(1)}deg)">
-            <div class="qibla-needle-n"></div><div class="qibla-needle-s"></div>
-          </div>
-        </div>
-      </div>
-      <span class="qibla-deg-big">${Math.round(deg)}° ${dir}</span>
-      <div class="qibla-card">${Math.round(deg)}° · ${t('qiblaInfoTitle')||'Kıble'}</div>
-      ${hasSensor?`<button class="qibla-sensor-btn" id="qiblaSensorBtn" onclick="toggleCompass(${deg})">${t('qiblaSensorOn')}</button>`:''}
-    </div>`;
-  // qiblaInfoText da güncelle
-  const infoEl=document.getElementById('qiblaInfoText');
-  if(infoEl) infoEl.textContent=t('qiblaInfoText');
+  const st=document.getElementById('qiblaStatus'); if(st) st.textContent='';
+  const infoEl=document.getElementById('qiblaInfoText'); if(infoEl) infoEl.textContent=t('qiblaInfoText');
 }
 
-function toggleCompass(qDeg){
+function renderQibla(){
+  // Yön harflerini dile göre güncelle
+  const cardinals={tr:{n:'K',s:'G',e:'D',w:'B'},en:{n:'N',s:'S',e:'E',w:'W'},ar:{n:'ش',s:'ج',e:'ش',w:'غ'},fa:{n:'ش',s:'ج',e:'ش',w:'غ'},fr:{n:'N',s:'S',e:'E',w:'O'},de:{n:'N',s:'S',e:'O',w:'W'}};
+  const c=cardinals[currentLang]||cardinals.en;
+  ['n','s','e','w'].forEach(d=>{ const el=document.getElementById('cp'+d.toUpperCase()); if(el) el.textContent=c[d]; });
+  // Buton metinleri
+  const gpsBtn=document.getElementById('qiblaGpsBtn');
+  if(gpsBtn){const sp=gpsBtn.querySelector('span'); if(sp) sp.textContent=t('qiblaGpsBtnLbl')||'Konumumu Algıla';}
+  const sBtn=document.getElementById('qiblaSensorBtn');
+  if(sBtn){const sp=sBtn.querySelector('span'); if(sp) sp.textContent=compassActive?t('qiblaSensorOffLbl'):t('qiblaSensorOnLbl');}
+  const srchBtn=document.getElementById('qiblaSearchBtnEl');
+  if(srchBtn) srchBtn.textContent=t('qiblaSearchBtnLbl')||'Ara';
+  // Legend
+  const lN=document.getElementById('legendNorth'); if(lN) lN.textContent=t('legendNorthLbl')||'Kuzey';
+  const lQ=document.getElementById('legendQibla'); if(lQ) lQ.textContent=t('legendQiblaLbl')||'Kıble yönü';
+  // Placeholder
+  const inp=document.getElementById('qiblaInput');
+  if(inp) inp.placeholder=currentLang==='ar'?'القاهرة، دبي...':currentLang==='fa'?'تهران، دبی...':'İstanbul, London...';
+  // Konum varsa göster
+  if(qiblaLat&&qiblaDeg!==null){
+    const needleQ=document.getElementById('needleQibla');
+    if(needleQ) needleQ.style.transform=`rotate(${qiblaDeg.toFixed(1)}deg)`;
+    const degEl=document.getElementById('qiblaDegInfo');
+    if(degEl) degEl.textContent=`${Math.round(qiblaDeg)}° ${qiblaDirFull(qiblaDeg)}`;
+  } else if(cityLat&&cityLon&&!qiblaLat){
+    // Vakitler sekmesinden şehir seçilmişse onu kullan
+    const locInfo=document.getElementById('locationInfo');
+    const nm=locInfo?locInfo.textContent.replace('📍 ',''):'';
+    updateQiblaDisplay(cityLat, cityLon, nm);
+  } else {
+    const dirEl=document.getElementById('qiblaDirInfo');
+    if(dirEl) dirEl.textContent=t('qiblaDirSelect')||'Konum seçin';
+  }
+}
+
+function qiblaAutoLocate(){
+  const st=document.getElementById('qiblaStatus'); if(st) st.textContent=t('qiblaLocating')||'Konum alınıyor...';
+  const gpsBtn=document.getElementById('qiblaGpsBtn'); if(gpsBtn) gpsBtn.classList.add('on');
+  if(!navigator.geolocation){ if(st) st.textContent=t('geoError'); if(gpsBtn) gpsBtn.classList.remove('on'); return; }
+  navigator.geolocation.getCurrentPosition(
+    pos=>{
+      if(gpsBtn) gpsBtn.classList.remove('on');
+      const nomLangQ=({tr:'tr',en:'en',ar:'ar',fa:'fa',fr:'fr',de:'de'})[currentLang]||'en';
+      fetch(`https://nominatim.openstreetmap.org/reverse?format=json&accept-language=${nomLangQ}&lat=${pos.coords.latitude}&lon=${pos.coords.longitude}`)
+        .then(r=>r.json())
+        .then(d=>{
+          const city=d.address.city||d.address.town||d.address.village||d.address.county||'';
+          const country=d.address.country||'';
+          updateQiblaDisplay(pos.coords.latitude, pos.coords.longitude, (city+(country?', '+country:'')));
+        }).catch(()=>updateQiblaDisplay(pos.coords.latitude, pos.coords.longitude, ''));
+    },
+    ()=>{ if(gpsBtn) gpsBtn.classList.remove('on'); if(st) st.textContent=t('geoError'); }
+  );
+}
+
+function qiblaInputHandler(){
+  clearTimeout(qiblaSuggTimer);
+  const val=document.getElementById('qiblaInput').value.trim();
+  if(val.length<2){ closeQiblaSugg(); return; }
+  qiblaSuggTimer=setTimeout(()=>fetchQiblaSugg(val),350);
+}
+async function fetchQiblaSugg(q){
+  const nomLangQ=({tr:'tr',en:'en',ar:'ar',fa:'fa',fr:'fr',de:'de'})[currentLang]||'en';
+  try{
+    const r=await fetch(`https://nominatim.openstreetmap.org/search?format=json&accept-language=${nomLangQ}&q=${encodeURIComponent(q)}&limit=5`);
+    const d=await r.json();
+    const box=document.getElementById('qiblaSugg'); if(!box) return;
+    if(!d.length){ closeQiblaSugg(); return; }
+    box.innerHTML='';
+    d.forEach(p=>{
+      const div=document.createElement('div'); div.className='qibla-sugg-item';
+      div.textContent=p.display_name.split(',').slice(0,3).join(', ');
+      div.onclick=()=>{
+        document.getElementById('qiblaInput').value=p.display_name.split(',')[0];
+        closeQiblaSugg();
+        updateQiblaDisplay(+p.lat, +p.lon, p.display_name.split(',').slice(0,2).join(', '));
+      };
+      box.appendChild(div);
+    });
+    box.style.display='block';
+  }catch(e){ closeQiblaSugg(); }
+}
+async function qiblaSearch(){
+  const val=document.getElementById('qiblaInput').value.trim(); if(!val) return;
+  closeQiblaSugg();
+  const st=document.getElementById('qiblaStatus'); if(st) st.textContent=t('loading')+'...';
+  const nomLangQ=({tr:'tr',en:'en',ar:'ar',fa:'fa',fr:'fr',de:'de'})[currentLang]||'en';
+  try{
+    const r=await fetch(`https://nominatim.openstreetmap.org/search?format=json&accept-language=${nomLangQ}&q=${encodeURIComponent(val)}&limit=1`);
+    const d=await r.json();
+    if(!d.length){ if(st) st.textContent=t('notFound'); return; }
+    updateQiblaDisplay(+d[0].lat, +d[0].lon, d[0].display_name.split(',').slice(0,2).join(', '));
+  }catch(e){ if(st) st.textContent='Hata.'; }
+}
+function closeQiblaSugg(){ const b=document.getElementById('qiblaSugg'); if(b) b.style.display='none'; }
+document.addEventListener('click',e=>{ if(!e.target.closest('.qibla-search-row')) closeQiblaSugg(); });
+
+function toggleCompass(){
   const btn=document.getElementById('qiblaSensorBtn'); if(!btn) return;
+  const span=btn.querySelector('span');
   if(!compassActive){
     const start=()=>{
-      compassActive=true; btn.classList.add('on'); btn.textContent=t('qiblaSensorOff');
+      compassActive=true; btn.classList.add('on');
+      if(span) span.textContent=t('qiblaSensorOffLbl')||'Kapat';
       compassHandler=e=>{
-        const heading=e.webkitCompassHeading||(e.alpha?360-e.alpha:0);
-        const n=document.getElementById('qiblaNeedle');
-        if(n) n.style.transform=`rotate(${(qDeg-heading+360)%360}deg)`;
+        const heading=e.webkitCompassHeading!==undefined?e.webkitCompassHeading:(e.alpha!=null?360-e.alpha:null);
+        if(heading===null) return;
+        // Kuzey ibresi: pusula gövdesi döndükçe kuzey sabit kalır gibi görünür
+        const nw=document.getElementById('needleNorth');
+        if(nw) nw.style.transform=`rotate(${-heading}deg)`;
+        // Kıble ibresi: qiblaDeg - heading
+        if(qiblaDeg!==null){
+          const qw=document.getElementById('needleQibla');
+          if(qw) qw.style.transform=`rotate(${qiblaDeg-heading}deg)`;
+        }
       };
       window.addEventListener('deviceorientation',compassHandler,true);
     };
@@ -1375,8 +1560,12 @@ function toggleCompass(qDeg){
       DeviceOrientationEvent.requestPermission().then(r=>{ if(r==='granted') start(); }).catch(()=>{});
     } else { start(); }
   } else {
-    compassActive=false; btn.classList.remove('on'); btn.textContent=t('qiblaSensorOn');
+    compassActive=false; btn.classList.remove('on');
+    if(span) span.textContent=t('qiblaSensorOnLbl')||'Canlı Pusula';
     if(compassHandler){ window.removeEventListener('deviceorientation',compassHandler,true); compassHandler=null; }
+    // Sıfırla: kuzey yukarı, kıble hesaplanan açıda
+    const nw=document.getElementById('needleNorth'); if(nw) nw.style.transform='rotate(0deg)';
+    if(qiblaDeg!==null){ const qw=document.getElementById('needleQibla'); if(qw) qw.style.transform=`rotate(${qiblaDeg}deg)`; }
   }
 }
 
