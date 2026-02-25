@@ -1032,6 +1032,9 @@ function showTab(name){
   document.querySelectorAll('.tab-btn').forEach(el=>el.classList.remove('active'));
   document.getElementById('tab-content-'+name).classList.add('active');
   document.getElementById('tab-'+name).classList.add('active');
+  if(name==='qibla') renderQibla();
+  if(name==='tasbih') renderTasbihZikrs();
+  if(name==='calendar') renderCalendar();
 }
 
 // ============================
@@ -1562,17 +1565,6 @@ function calDownload(){
   const a=document.createElement('a');
   a.href=url; a.download=`prayer-times-${mLabel.replace(' ','-')}.html`; a.click();
   URL.revokeObjectURL(url);
-}
-
-// ══════════════════════════════════════════════
-// showTab → yeni sekmelerde lazy render
-// ══════════════════════════════════════════════
-const _origShowTab=showTab;
-function showTab(name){
-  _origShowTab(name);
-  if(name==='qibla') renderQibla();
-  if(name==='tasbih') renderTasbihZikrs();
-  if(name==='calendar') renderCalendar();
 }
 
 // ============================
